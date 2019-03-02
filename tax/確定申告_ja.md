@@ -21,7 +21,7 @@
   
 - なる
   - 住宅ローン 利子分 勘定科目:`利子割引料` freee `支払利息`
-  - 管理費・共益費 勘定科目:`地代家賃`
+  - 管理費・共益費 勘定科目:`地代家賃` free `雑費` 
   - 水道光熱費 勘定科目:`水道光熱費`
 
 - 条件次第でなる
@@ -33,3 +33,4 @@
 - [個人事業主は確定申告で借入金をどう扱えばよいか？ ](https://www.eloan.co.jp/fp/topic.php?num=662)
 - [住宅ローンは経費に入る？自宅兼事務所の個人事業主の場合](http://www.efbf.org/jobs/Insurance/Find-job-CLAIM-REPRESENTATIVE-TRAINEE-361264.htm)
 - [個人事業主のマンションの修繕積立金は経費になるのか？](https://cashqa.com/taxao-22/)
+- [マンションの管理費の勘定科目は何になるの？](http://osmaga.com/post-370-370)
