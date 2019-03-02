@@ -34,3 +34,9 @@
 - [住宅ローンは経費に入る？自宅兼事務所の個人事業主の場合](http://www.efbf.org/jobs/Insurance/Find-job-CLAIM-REPRESENTATIVE-TRAINEE-361264.htm)
 - [個人事業主のマンションの修繕積立金は経費になるのか？](https://cashqa.com/taxao-22/)
 - [マンションの管理費の勘定科目は何になるの？](http://osmaga.com/post-370-370)
+
+### 感想
+
+基本的には、freee に沿って入力進めるで作成できる。
+個人事業主での申告がはじめてということもあり、確認をしながら書類印刷して最終確認するまで4時間強。
+
