@@ -23,7 +23,7 @@ $ tar -zxvf xxx.tar.gz
 
 - フルダンプの例
 ```
-mongodump -o dump_`date +"%Y%m%d_%H%M%S"`
+$ mongodump -o dump_`date +"%Y%m%d_%H%M%S"`
 ```
 
 ### Restore
