@@ -2,8 +2,6 @@
 
 ### Dump
 
-- 2019/03/26
-
 - 全DB
 ```
 $ mongodump -o <OUTPUT_DIR>
@@ -27,6 +25,8 @@ $ tar -zxvf xxx.tar.gz
 ```
 mongodump -o dump_`date +"%Y%m%d_%H%M%S"`
 ```
+
+### Restore
 
 - Dumpファイルからリストア
 ```
