@@ -1,5 +1,10 @@
 # MongoDB query に関する学び
 
+## 生のクエリを書く時
+
+- [db.collection.find(query, projection)](https://docs.mongodb.com/manual/reference/method/db.collection.find/)
+- [こんな時どうする？ MongoDBクエリ逆引きリファレンス](https://qiita.com/nishina555/items/9e20211e8d6f12fdb7b7)
+
 ## Ruby mongoid で利用する場合
 
 - 2019/03/31 クエリ例
