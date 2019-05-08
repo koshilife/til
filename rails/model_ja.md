@@ -1,6 +1,12 @@
 # Rails Modelクラスに関する学び
 
 
+## #pluck
+
+- 2019/05/07 mapではなく、メモリに優しい効率的なpluckを使おう
+  - [Rails: pluckでメモリを大幅に節約する](https://techracho.bpsinc.jp/hachi8833/2018_09_26/62333)
+
+
 ### #includes
 
 - 2019/02/28 既存プロダクトのソースを読み込みしていたら includes メソッドの挙動を以下で確認した。
