@@ -36,6 +36,8 @@ git push origin :feature/a
 - rebaseでやっていることは図にした以下がわかりやすかった。
   - rebase中にコンフリクトした場合は、手動でマージして続けることが可能。
   - rebaseで複数コミットをまとめることが可能。
-  
+- 複数の以前のコミットコメントを変更したい時 例 `git rebase -i HEAD~3`
+  - https://www.granfairs.com/blog/staff/git-commit-fix
+
 - 参考
   - [git rebaseを初めて使った際のまとめ](https://qiita.com/panti310/items/e0ec74b47c6c219f2a8b)
