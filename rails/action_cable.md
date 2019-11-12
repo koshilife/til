@@ -105,6 +105,10 @@ https://github.com/rails/rails/blob/master/actioncable/lib/action_cable/connecti
       end
 ```      
 
+:WebSocket::Driver は以下のGemを利用している。
+https://github.com/faye/websocket-driver-ruby
+
+
 ## rails ActionCable::SubscriptionAdapter::Redis
 
 https://github.com/rails/rails/blob/master/actioncable/lib/action_cable/subscription_adapter/redis.rb
