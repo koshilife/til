@@ -10,7 +10,7 @@ Redis <=> ActionCable サーバ間で 意図しない unsubscribe イベント�
 
 https://github.com/rails/rails/blob/master/actioncable/lib/action_cable.rb
 
-```
+```.rb
 module ActionCable
   extend ActiveSupport::Autoload
 
@@ -71,7 +71,7 @@ https://github.com/rails/rails/blob/master/actioncable/lib/action_cable/server/c
 https://github.com/rails/rails/blob/master/actioncable/lib/action_cable/connection/base.rb
 
 
-```
+```.rb
       attr_reader :websocket
       
       def initialize
@@ -94,7 +94,7 @@ https://github.com/rails/rails/blob/master/actioncable/lib/action_cable/connecti
 
 https://github.com/rails/rails/blob/master/actioncable/lib/action_cable/connection/web_socket.rb
 
-```
+```.rb
       def initialize(env, event_target, event_loop, protocols: ActionCable::INTERNAL[:protocols])
         @websocket = ::WebSocket::Driver.websocket?(env) ? ClientSocket.new(env, event_target, event_loop, protocols) : nil
       end
