@@ -177,3 +177,8 @@ https://github.com/rails/rails/blob/master/actioncable/app/assets/javascripts/ac
   - connection.js#close が呼ばれ、
     - 切断時刻を記録し、再接続のサイクルは `ConnectionMonitor`　に移管。
     - subscriptions.notifyAll で全購読中のsubscriptionの disconnected を呼び出す処理をする
+
+https://github.com/rails/rails/blob/master/actioncable/app/javascript/action_cable/subscription.js
+https://github.com/rails/rails/blob/master/actioncable/app/javascript/action_cable/subscriptions.js
+https://github.com/rails/rails/blob/master/actioncable/app/javascript/action_cable/connection.js
+
