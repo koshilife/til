@@ -6,6 +6,10 @@ Redis <=> ActionCable サーバ間で 意図しない unsubscribe イベント�
 発生のメカニズムと対策を調査するために Rails のコードを読むことに。
 メモをまとめる。
 
+=> 結論　Nginxのタイムアウトで　disconnect が発生していた。
+
+# Rails
+
 ## Rails ActionCable
 
 https://github.com/rails/rails/blob/master/actioncable/lib/action_cable.rb
@@ -125,4 +129,51 @@ https://github.com/rails/rails/blob/master/actioncable/lib/action_cable/subscrip
 - private redis_connection_for_broadcasts
   - return self.class.redis_connector.call(@server.config.cable)
 
+## その他
 
+- 11月の Rails master 時点では https://github.com/faye/websocket-driver-ruby/ をラップして WebSocket通信を行っている
+- 3秒おきにRailsからClientに対してWebSocketの死活監視を行い、 ping イベントを発行している。
+  - Connection::Base#transmit -> ClientSocket#transmit, @driver.text
+    - ClientSocket#initialize @driver.on(:open, :message, :close, :error ) にてイベントを紐付けてる。
+  - TODO: ここまでしか終えていないので、もうちょっとコードを読む
+
+参考:
+https://github.com/faye/websocket-driver-ruby/blob/ee39af83d03ae3059c775583e4c4b291641257b8/examples/em_client.rb
+
+wscatでAction Cableと通信する
+https://blog.kymmt.com/entry/communicate-with-action-cable-by-wscat
+
+# クライアント (js)
+
+- 接続をコントロールする役割は `ConnectionMonitor` が担っており、切断時の自動再接続 `reconnectIfStale` など実装されてる
+  - 3s ~ 30sec でリトライ試行数に応じて時間を開けて再接続を行っている exponential back off の考え。
+
+https://github.com/rails/rails/blob/master/actioncable/app/javascript/action_cable/connection_monitor.js
+
+- Websocketのメッセージプロトコルは 以下の message_types で定義されている 5種類
+
+```action_cable.js
+  var INTERNAL = {
+    message_types: {
+      welcome: "welcome",
+      disconnect: "disconnect",
+      ping: "ping",
+      confirmation: "confirm_subscription",
+      rejection: "reject_subscription"
+    },
+    disconnect_reasons: {
+      unauthorized: "unauthorized",
+      invalid_request: "invalid_request",
+      server_restart: "server_restart"
+    },
+    default_mount_path: "/cable",
+    protocols: [ "actioncable-v1-json", "actioncable-unsupported" ]
+  };
+  ```
+
+https://github.com/rails/rails/blob/master/actioncable/app/assets/javascripts/action_cable.js
+
+- disconnect が呼ばれた時は、
+  - connection.js#close が呼ばれ、
+    - 切断時刻を記録し、再接続のサイクルは `ConnectionMonitor`　に移管。
+    - subscriptions.notifyAll で全購読中のsubscriptionの disconnected を呼び出す処理をする
