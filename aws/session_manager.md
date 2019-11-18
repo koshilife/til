@@ -12,4 +12,6 @@
   - インスタンスに割り当てる EC2 Role に `AmazonEC2RoleforSSM` を追加
   - SSMエージェントを入れる [参考](https://docs.aws.amazon.com/ja_jp/systems-manager/latest/userguide/sysman-manual-agent-install.html#agent-install-al)
   - Sessinon Manager からインスタンスを選ぶ
-  
+
+- Next
+  - Macから直ログインも可能らしい [参考](https://dev.classmethod.jp/cloud/ssm-session-manager-from-mac-to-linux-ec2/)
