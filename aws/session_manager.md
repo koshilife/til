@@ -19,8 +19,9 @@ Macから直ログインも可能らしい [参考](https://dev.classmethod.jp/c
 
 試した。
 - iam に policy 追加 [例 4: すべてのセッションにフル (管理) アクセスを許可する](https://docs.aws.amazon.com/ja_jp/systems-manager/latest/userguide/getting-started-restrict-access-examples.html)
-- Userにポリシーを追加してインスタンスへアクセスしたが以下エラーに遭遇、権限が足りないらしい
+- Userにポリシーを追加してインスタンスへアクセスしたが以下エラーに遭遇、権限が足りないらしい。その後インスタンスの再起動でログインできたので、ssm のデーモン再起動が必要だったかもしれない。
 
 ```
 An error occurred (AccessDeniedException) when calling the StartSession operation: User: arn:aws:iam::xxx:user/xxx is not authorized to perform: ssm:StartSession on resource: arn:aws:ec2:ap-northeast-1:xxx:instance/i-xxx
 ````
+
