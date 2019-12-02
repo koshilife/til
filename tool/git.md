@@ -42,3 +42,15 @@ git push origin :feature/a
 
 - 参考
   - [git rebaseを初めて使った際のまとめ](https://qiita.com/panti310/items/e0ec74b47c6c219f2a8b)
+  
+ ## revert
+ 
+- 変更を打ち消すコマンド
+- Githubはマージしたものを revert する機能があり、revert 用のマジリクを自動で作れる
+- revert後に 問題のあった feature/xxx ブランチは差分が出ないため、rebase等で最新状態を取り込んでから、revertしたコミットをrevertして修正をはじめる、Github では revert 用に作成したマジリクに対するrevert は作れなかった。のでコマンドで。
+
+```
+$ git revert -m 1 <REVERT COMMIT>
+```
+- `-m オプション` は `1` or `2` を取れる。参考 https://blog.toshimaru.net/git-revert-mainline/
+ 
