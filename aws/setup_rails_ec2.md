@@ -29,8 +29,24 @@ sudo systemctl enable nginx.service
 ```
 
 ```
-# Certbot
+# Certbot install (参考: https://qiita.com/MysteriousMonkey/items/4d3d857c0e68d4bfff39)
+$ sudo wget -r --no-parent -A 'epel-release-*.rpm' http://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/
+$ sudo rpm -Uvh dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-*.rpm
+$ sudo yum-config-manager --enable epel*
+$ sudo yum install certbot python2-certbot-nginx
 
+# 証明書発行
+$ sudo certbot --nginx -d example.com -d www.example.com -d dev.example.com -d www.dev.example.com
+$ sudo certbot certificates
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Found the following certs:
+  Certificate Name: example.com
+    Domains: example.com dev.example.com www.dev.example.com www.example.com
+    Expiry Date: 2020-03-06 23:51:10+00:00 (VALID: 84 days)
+    Certificate Path: /etc/letsencrypt/live/example.com/fullchain.pem
+    Private Key Path: /etc/letsencrypt/live/example.com/privkey.pem
 ```
 
 ```
@@ -65,4 +81,8 @@ Last 10 log lines:
  95% [1046/1093]  prelude.rb
  95% [1047/1093]  proc.c
 make: *** [rdoc] Killed
+
+# 失敗したので https://qiita.com/ytsukamoto/items/2367461281087657abcf を参考に再インストール
+$ export RUBY_CONFIGURE_OPTS=--disable-install-doc
+$ rbenv install 2.6.5
 ```
