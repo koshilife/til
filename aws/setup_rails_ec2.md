@@ -9,8 +9,11 @@
 
 ## EC2 Setup
 
+
 ```
+# Essential tools
 sudo yum install -y git
+```
 
 ```
 # SSM-Agent
@@ -30,6 +33,7 @@ sudo systemctl enable nginx.service
 
 ```
 
+```
 # rbenv
 $ git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
 $ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
