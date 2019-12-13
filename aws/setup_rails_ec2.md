@@ -9,23 +9,35 @@
 
 ## EC2 Setup
 
+```
+# UTC->JST 参考: https://qiita.com/nikuruyo/items/19504660c50efe3c24c2
+$ sudo vi /etc/sysconfig/clock
+------
+#ZONE="UTC"
+ZONE="Asia/Tokyo"
+UTC=true
+------
+$ sudo ln -sf /usr/share/zoneinfo/Japan /etc/localtime
+```
 
 ```
-# Essential tools
-sudo yum install -y git
+# update yum & install essential tools
+$ sudo yum update -y
+$ sudo yum install -y git
+$ sudo yum install -y readline-devel
 ```
 
 ```
 # SSM-Agent
-sudo yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
-sudo systemctl status amazon-ssm-agent
+$ sudo yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
+$ sudo systemctl status amazon-ssm-agent
 ```
 
 ```
 # Nginx
-sudo amazon-linux-extras install nginx1
-sudo systemctl start nginx.service
-sudo systemctl enable nginx.service
+$ sudo amazon-linux-extras install nginx1
+$ sudo systemctl start nginx.service
+$ sudo systemctl enable nginx.service
 ```
 
 ```
@@ -85,4 +97,8 @@ make: *** [rdoc] Killed
 # 失敗したので https://qiita.com/ytsukamoto/items/2367461281087657abcf を参考に再インストール
 $ export RUBY_CONFIGURE_OPTS=--disable-install-doc
 $ rbenv install 2.6.5
+$ rbenv rehash
+$ rbenv global 2.6.5
+$ ruby -v
+ruby 2.6.5p114 (2019-10-01 revision 67812) [x86_64-linux]
 ```
