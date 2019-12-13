@@ -102,3 +102,17 @@ $ rbenv global 2.6.5
 $ ruby -v
 ruby 2.6.5p114 (2019-10-01 revision 67812) [x86_64-linux]
 ```
+
+```
+# git,ssh設定 参考: https://qiita.com/shizuma/items/2b2f873a0034839e47ce
+# Githubにデプロイキーを登録
+
+$ vim ~/.ssh/github.pem
+<<作成した秘密鍵の情報を貼り付け>>
+
+$ vim ~/.ssh/config 
+Host github github.com
+    HostName github.com
+    IdentityFile ~/.ssh/github.pem
+    User git
+```
