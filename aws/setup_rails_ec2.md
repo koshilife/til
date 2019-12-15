@@ -160,3 +160,21 @@ $ bundle exec rake assets:precompile RAILS_ENV=production
 
 Rails x Nginx 設定
 
+DBはMongoを採用
+https://dev.classmethod.jp/server-side/db/install-mongodb42rc/
+参考
+```
+$ vim /etc/yum.repos.d/mongodb-org-4.2.repo
+[mongodb-org-4.2]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/amazon/2/mongodb-org/testing/x86_64/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.mongodb.org/static/pgp/server-4.2.asc
+
+$ sudo yum install -y mongodb-org
+$ sudo systemctl start mongod
+$ sudo systemctl status mongod
+$ sudo systemctl enable mongod
+$ mongo
+```
