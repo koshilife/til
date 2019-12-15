@@ -151,10 +151,11 @@ Rails
 $ git clone git@github.com:xxx/xxx.git
 $ cd xxx
 $ bundle install
+$ yarn install --check-files
 
 # compile
 $ bundle exec rake assets:clobber RAILS_ENV=production
-$ bundle exec rails webpacker:compile RAILS_ENV=production
+$ bundle exec rake assets:precompile RAILS_ENV=production
 ```
 
 Rails x Nginx 設定
