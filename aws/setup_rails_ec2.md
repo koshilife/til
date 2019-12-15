@@ -153,7 +153,7 @@ $ cd xxx
 $ bundle install
 
 # compile
-$ bundle exec rails webpacker:compile RAILS_ENV=production
+$ bundle exec rake assets:clobber RAILS_ENV=production
 $ bundle exec rails webpacker:compile RAILS_ENV=production
 ```
 
