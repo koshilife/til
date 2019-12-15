@@ -101,6 +101,9 @@ $ rbenv rehash
 $ rbenv global 2.6.5
 $ ruby -v
 ruby 2.6.5p114 (2019-10-01 revision 67812) [x86_64-linux]
+
+# ruby-devel
+$ sudo yum install ruby-devel
 ```
 
 ```
