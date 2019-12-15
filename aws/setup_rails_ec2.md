@@ -25,6 +25,8 @@ $ sudo ln -sf /usr/share/zoneinfo/Japan /etc/localtime
 $ sudo yum update -y
 $ sudo yum install -y git
 $ sudo yum install -y readline-devel
+$ sudo yum groupinstall "Development Tools"
+$ sudo yum install ruby-devel
 ```
 
 ```
@@ -101,9 +103,6 @@ $ rbenv rehash
 $ rbenv global 2.6.5
 $ ruby -v
 ruby 2.6.5p114 (2019-10-01 revision 67812) [x86_64-linux]
-
-# ruby-devel
-$ sudo yum install ruby-devel
 ```
 
 ```
