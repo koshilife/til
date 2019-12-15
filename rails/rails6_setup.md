@@ -1,6 +1,6 @@
 # Rails 6
 
-- 6.0.2
+- v6.0.2
 - DB: mongo (mongoid)
 
 ```
