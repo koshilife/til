@@ -27,6 +27,7 @@ $ sudo yum install -y git
 $ sudo yum install -y readline-devel
 $ sudo yum groupinstall "Development Tools"
 $ sudo yum install ruby-devel
+$ yum install sqlite-devel
 ```
 
 ```
