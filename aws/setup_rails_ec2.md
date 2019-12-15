@@ -30,12 +30,14 @@ $ sudo yum install ruby-devel
 $ sudo yum install sqlite-devel
 ```
 
+SSM-Agent
 ```
 # SSM-Agent
 $ sudo yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
 $ sudo systemctl status amazon-ssm-agent
 ```
 
+Nginx
 ```
 # Nginx
 $ sudo amazon-linux-extras install nginx1
@@ -142,3 +144,18 @@ Host github github.com
     IdentityFile ~/.ssh/github.pem
     User git
 ```
+
+Rails
+```
+# clone & setup
+$ git clone git@github.com:xxx/xxx.git
+$ cd xxx
+$ bundle install
+
+# compile
+$ bundle exec rails webpacker:compile RAILS_ENV=production
+$ bundle exec rails webpacker:compile RAILS_ENV=production
+```
+
+Rails x Nginx 設定
+
