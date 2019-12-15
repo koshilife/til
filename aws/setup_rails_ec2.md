@@ -64,6 +64,29 @@ Found the following certs:
     Private Key Path: /etc/letsencrypt/live/example.com/privkey.pem
 ```
 
+Node 
+```
+# NVM
+$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+$ vim ~/.bash_profile 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+$ source ~/.bash_profile
+$ nvm ls-remote
+$ nvm install v12.13.1
+$ nvm use v12.13.1
+
+# Yarn
+$ curl -o- -L https://yarnpkg.com/install.sh | bash
+$ vim ~/.bash_profile
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+$ source ~/.bash_profile
+```
+
+
+Ruby
 ```
 # rbenv
 $ git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
