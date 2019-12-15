@@ -1,6 +1,7 @@
 # Rails 6
 
 - v6.0.2
+- Front: Vue
 - DB: mongo (mongoid)
 
 ```
