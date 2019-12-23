@@ -15,6 +15,9 @@ F, [2019-12-23T10:50:40.357625 #56754] FATAL -- : [65f02305-5f28-49de-a753-d2e26
 [65f02305-5f28-49de-a753-d2e26aac2f26] railties (6.0.2) lib/rails/rack/logger.rb:26:in `block in call'
 ```
 
+Railsのlogger周りのコードリーディング
+https://blog.freedom-man.com/rails-logger-codereading
+
 class Logger
 https://docs.ruby-lang.org/ja/latest/class/Logger.html
 
