@@ -32,3 +32,6 @@ https://qiita.com/suketa/items/dfff84951cc251df834e
 
 Nginxでリクエスト毎に発番して、Railsのログに書き込むまで
 https://webuilder240.hatenablog.com/entry/2018/07/30/
+
+Railsのlogger周りのコードリーディング
+https://blog.freedom-man.com/rails-logger-codereading
