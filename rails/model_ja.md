@@ -1,5 +1,9 @@
 # Rails Modelクラスに関する学び
 
+## #new, #build
+
+- build は newの alias で同じ。
+  - [railsのnewとbuildの違い]https://qiita.com/sukechansan/items/6bae532b4f678fdcf87d]
 
 ## #pluck
 
