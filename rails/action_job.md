@@ -1,4 +1,4 @@
-action mailboxに関するメモ
+ActiveJob に関するメモ
 
 guide
 https://railsguides.jp/active_job_basics.html
