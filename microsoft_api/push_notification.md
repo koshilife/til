@@ -25,3 +25,8 @@ https://docs.microsoft.com/en-us/graph/api/event-delta?view=graph-rest-1.0&tabs=
 https://docs.microsoft.com/en-us/graph/delta-query-events?tabs=http
 
 https://qiita.com/kenakamu/items/63a8d5d136223ad1939a
+
+# graph-explorer が便利
+
+API仕様の確認ができるサイトが重宝する
+https://developer.microsoft.com/en-us/graph/graph-explorer
