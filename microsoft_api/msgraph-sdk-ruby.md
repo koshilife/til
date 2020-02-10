@@ -109,7 +109,7 @@ OData::Service
     end
 ```
 
-1ループないでは、以下のようにメタデータファイル内容がはまり、EntityTypeクラスが生成され、１つづつ create_class! が呼ばれクラスが生成される
+1ループないでは、以下のようにメタデータファイル内容がはまり、OData::EntityTypeクラスが生成され、１つづつ create_class! が呼ばれクラスが生成される
 
 ```.rb
 options = {
@@ -121,5 +121,14 @@ options = {
           service:    self,　# (OData::Service インスタンス)
  }
  @type_name_map["microsoft.graph.subscription"] = EntityType.new(options)
+```
+
+## もう少し理解したいこと
+
+```
+graph = MicrosoftGraph.new
+graph.me
+# me のメソッド定義の仕組みを深堀り
+# さらに、 https://graph.microsoft.com/v1.0/me/ にアクセスし、返却された値をオブジェクトにマッピングするまでの流れ
 ```
 
