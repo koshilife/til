@@ -123,6 +123,37 @@ options = {
  @type_name_map["microsoft.graph.subscription"] = EntityType.new(options)
 ```
 
+
+Class の作り方
+
+ClassBuilder 内
+
+```.rb
+    def self.create_class!(type)
+      superklass = get_superklass(type)
+      # 上の例では、MicrosoftGraph モジュール内に、Subscription というクラスを定義
+      klass = MicrosoftGraph.const_set(classify(type.name), Class.new(superklass))
+      # Subscription に ODATA_TYPE を
+      klass.const_set("ODATA_TYPE", type)
+      klass.instance_eval do
+        def self.odata_type
+          const_get("ODATA_TYPE")
+        end
+      end
+      create_properties(klass, type)
+      create_navigation_properties(klass, type) if type.respond_to? :navigation_properties
+    end
+```
+
+ruby提供機能のメモ
+- const_set: 定数追加
+- class_eval: Blockでクラスメソッド定義に利用
+- instance_eval: Blockでインスタンスメソッド定義に利用
+- define_method: メソッドを作成
+
+メタデータに沿って読み込んだ内容をクラスと関連プロパティを定義する実装がされていた。
+create_properties でセッター、ゲッターを定義していたのを確認
+
 ## もう少し理解したいこと
 
 ```
