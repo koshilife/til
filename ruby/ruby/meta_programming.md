@@ -14,7 +14,7 @@ define_method内でインスタンス変数を参照する際は eval "@#{proper
 ```.rb
 module Hoge
   class BaseEntity
-    def initialize(options={})
+    def initialize
       @cached_property_values = {}
     end
   end
