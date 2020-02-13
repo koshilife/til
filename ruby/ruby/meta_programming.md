@@ -42,7 +42,7 @@ end
 ```
 
 msgraph のソース上では、
-define_method内でインスタンス変数を参照する際は eval "@#{property_name}=#{value}" といった eval を使う必要があるが、
+define_method内でインスタンス変数を参照する際は `eval "@#{property_name} = value"` といった eval を使う必要があるが、
 `cached_property_values` の Hashを持つことで、シンプルにかけるよう工夫していた。
 
 ```.rb
