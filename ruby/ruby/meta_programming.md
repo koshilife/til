@@ -78,3 +78,6 @@ end
 - https://github.com/microsoftgraph/msgraph-sdk-ruby/blob/master/lib/microsoft_graph/class_builder.rb
 - https://qiita.com/iguchi1124/items/a2a64f27e6dabbac1301
 
+以下のライブラリ v0.3.0 でこのテクニックを応用。
+https://github.com/koshilife/tanita-api-ruby-client/blob/master/lib/tanita/api/client/class_builder.rb
+
