@@ -255,6 +255,8 @@ odata/service.rb
 そのため、me.calendarsで取得する内容はデフォルトの10件のみではないだろうか。 
 ＝＞16件とれてるので、理由は追って調べる
 
+```.rb
 >> cals = me.calendars
 >> cals.count
 16
+```
