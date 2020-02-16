@@ -158,6 +158,10 @@ create_properties でセッター、ゲッターを定義していたのを確�
 
 ```
 graph = MicrosoftGraph.new
+
+>> graph.public_methods
+=> [:service, :containing_navigation_property, :drive, :me, :navigation_properties, :directoryObjects, :directoryRoles, :directoryRoleTemplates, :organization, :subscribedSkus, :groups, :users, :drives, :path, :devices, :require_dependency, :to_json, :instance_values, :instance_variable_names, :presence, :blank?, :html_safe?, :with_options, :to_yaml, :deep_dup, :present?, :acts_like?, :as_json, :duplicable?, :to_param, :to_query, :in?, :presence_in, :pretty_print_inspect, :pretty_print_instance_variables, :pretty_print, :pretty_print_cycle, :to_v8, :to_ruby, :__union__, :__union_from_object__, :__array__, :__expand_complex__, :regexp?, :__deep_copy__, :__add__, :__add_from_array__, :__intersect__, :__intersect_from_object__, :__intersect_from_array__, :__evolve_object_id__, :__find_args__, :__mongoize_object_id__, :__mongoize_time__, :do_or_do_not, :__setter__, :blank_criteria?, :multi_arged?, :mongoize, :you_must, :remove_ivar, :substitutable, :__to_inc__, :resizable?, :__sortable__, :ivar, :numeric?, :to_bson_normalized_value, :to_bson_key, :to_bson_normalized_key, :try, :try!, :require_or_load, :load_dependency, :unloadable, :instance_variable_defined?, :remove_instance_variable, :instance_of?, :kind_of?, :is_a?, :tap, :instance_variable_set, :protected_methods, :instance_variables, :instance_variable_get, :public_methods, :private_methods, :method, :public_method, :public_send, :singleton_method, :class_eval, :define_singleton_method, :extend, :to_enum, :enum_for, :<=>, :===, :=~, :!~, :gem, :eql?, :respond_to?, :byebug, :debugger, :remote_byebug, :freeze, :inspect, :pretty_inspect, :object_id, :send, :to_s, :display, :nil?, :hash, :class, :singleton_class, :clone, :dup, :itself, :yield_self, :then, :taint, :tainted?, :untaint, :untrust, :untrusted?, :trust, :frozen?, :methods, :singleton_methods, :equal?, :!, :==, :instance_exec, :!=, :instance_eval, :__id__, :__send__]
+
 graph.me
 # me のメソッド定義の仕組みを深堀り
 # さらに、 https://graph.microsoft.com/v1.0/me/ にアクセスし、返却された値をオブジェクトにマッピングするまでの流れ
@@ -172,3 +176,80 @@ graph.me.public_methods
 参考: metadataについて
 >https://docs.microsoft.com/ja-jp/graph/traverse-the-graph
 >メタデータにより、要求および応答パケットが表すリソースを構成するエンティティの種類、複合型、列挙型を含む、Microsoft Graph のデータ モデルを参照し、理解することができます
+
+
+ClassLoaderでMicrosoftGraphのインスタンスにSingletonタグの`me`を含む(auditLogs,me,directory, 等)のメソッドを追加しており
+メソッド内で tap(&:fetch) にて、fetch してデータを取得し、エンティティに対応するエンドポイントにデータを取りに行く
+
+
+```.rb
+def self.load!(service)
+ ...
+ service.singletons.each do |singleton|
+          class_name = classify(singleton.type_name)
+          MicrosoftGraph.instance_eval do
+            resource_name = singleton.name
+            define_method(OData.convert_to_snake_case(resource_name)) do
+              MicrosoftGraph
+                .const_get(class_name)
+                .new(
+                  graph:         self,
+                  resource_name: resource_name,
+                  parent:        self
+                ).tap(&:fetch)
+            end
+          end
+        end
+```
+
+base_entity.rb
+
+```.rb
+    def fetch
+      @persisted = true
+      initialize_serialized_properties(graph.service.get(path)[:attributes])
+    end
+```
+
+odata/service.rb
+
+```.rb
+
+    def get(path, *select_properties)
+      camel_case_select_properties = select_properties.map do |prop|
+        OData.convert_to_camel_case(prop)
+      end
+
+      if ! camel_case_select_properties.empty?
+        encoded_select_properties = URI.encode_www_form(
+          '$select' => camel_case_select_properties.join(',')
+        )
+        path = "#{path}?#{encoded_select_properties}"
+      end
+
+      response = request(
+        method: :get,
+        uri: "#{base_url}#{path}"
+      )
+      {type: get_type_for_odata_response(response), attributes: response}
+    end
+    
+    def request(options = {})
+      uri = options[:uri]
+
+      if @api_version then
+        parsed_uri = URI(uri)
+        params = URI.decode_www_form(parsed_uri.query || '')
+                    .concat(@api_version.to_a)
+        parsed_uri.query = URI.encode_www_form params
+        uri = parsed_uri.to_s
+      end
+
+      req = Request.new(options[:method], uri, options[:data])
+      @auth_callback.call(req) if @auth_callback
+      req.perform
+    end
+```
+
+この getメソッドでは、$select以外の任意のプロパティは追加できないので、ODataオプションには対応していないようだ。
+そのため、me.calendarsで取得する内容はデフォルトの10件のみではないだろうか。
