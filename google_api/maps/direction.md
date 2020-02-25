@@ -369,6 +369,45 @@ https://maps.googleapis.com/maps/api/directions/json?origin=東京駅&destinatio
 }
 ```
 
+日本は transit (経路案内) は利用できないようだ。
+https://maps.googleapis.com/maps/api/directions/json?origin=%E6%9D%B1%E4%BA%AC%E9%A7%85&destination=%E6%B8%8B%E8%B0%B7%E9%A7%85&mode=transit&language=ja&key=<API_KEY>
+
+以下のようになる。
+参考: https://qiita.com/seigo-pon/items/bff784040e9e46dc8a56
+
+```
+{
+   "available_travel_modes" : [ "DRIVING", "WALKING" ],
+   "geocoded_waypoints" : [
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJC3Cf2PuLGGAROO00ukl8JwA",
+         "types" : [
+            "establishment",
+            "point_of_interest",
+            "subway_station",
+            "train_station",
+            "transit_station"
+         ]
+      },
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJnxAAO1aLGGARJqvi8d4oczM",
+         "types" : [
+            "establishment",
+            "point_of_interest",
+            "subway_station",
+            "train_station",
+            "transit_station"
+         ]
+      }
+   ],
+   "routes" : [],
+   "status" : "ZERO_RESULTS"
+}
+```
+
+
 場所情報がHitしない場合は、`ZERO_RESULTS` で判断可能。
 "ご訪問"から"神保町"
 
