@@ -2,7 +2,7 @@ Google Maps API 利用料金
 
 - [API 料金表](https://cloud.google.com/maps-platform/pricing/sheet/?hl=ja)
 
-月間の利用料に応じて料金テーブルに応じて従量課金。
+月間の利用料に応じて料金テーブルに応じて従量課金。※2020/02時点
 
 ## Places textSearch
 
