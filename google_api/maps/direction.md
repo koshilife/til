@@ -368,3 +368,23 @@ https://maps.googleapis.com/maps/api/directions/json?origin=東京駅&destinatio
    "status" : "OK"
 }
 ```
+
+場所情報がHitしない場合は、`ZERO_RESULTS` で判断可能。
+
+
+```
+{
+   "geocoded_waypoints" : [
+      {
+         "geocoder_status" : "ZERO_RESULTS"
+      },
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJwwXpBxSMGGARUdN86mbnCJ8",
+         "types" : [ "political", "sublocality", "sublocality_level_2" ]
+      }
+   ],
+   "routes" : [],
+   "status" : "NOT_FOUND"
+}
+```
