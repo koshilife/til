@@ -370,7 +370,7 @@ https://maps.googleapis.com/maps/api/directions/json?origin=東京駅&destinatio
 ```
 
 場所情報がHitしない場合は、`ZERO_RESULTS` で判断可能。
-
+"ご訪問"から"神保町"
 
 ```
 {
@@ -380,11 +380,38 @@ https://maps.googleapis.com/maps/api/directions/json?origin=東京駅&destinatio
       },
       {
          "geocoder_status" : "OK",
-         "place_id" : "ChIJwwXpBxSMGGARUdN86mbnCJ8",
+         "place_id" : "
+         ",
          "types" : [ "political", "sublocality", "sublocality_level_2" ]
       }
    ],
    "routes" : [],
    "status" : "NOT_FOUND"
 }
+```
+
+place_id はキーワードベースで一位になるっぽい。
+"渋谷駅"から"神保町"
+
+```
+{
+   "geocoded_waypoints" : [
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJnxAAO1aLGGARJqvi8d4oczM",
+         "types" : [
+            "establishment",
+            "point_of_interest",
+            "subway_station",
+            "train_station",
+            "transit_station"
+         ]
+      },
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJwwXpBxSMGGARUdN86mbnCJ8",
+         "types" : [ "political", "sublocality", "sublocality_level_2" ]
+      }
+   ],
+  　...
 ```
