@@ -66,6 +66,3 @@ environment.loaders.prepend('typescript', typescript)
 module.exports = environment
 ```
 
-https://qiita.com/kyo_nanba/items/d1678fbf8d3e60f913a1
-http://clash-m45.hatenablog.com/entry/2019/09/21/120215
-https://qiita.com/chimame/items/8d3d6f4afea675cffa7d
