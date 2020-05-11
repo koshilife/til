@@ -14,6 +14,8 @@ site = 'https://api.thebase.in'
 client = OAuth2::Client.new(client_id, client_secret, :site => site)
 
 ```
+
+## use token 
  
 ```.rb
 require 'net/http'
