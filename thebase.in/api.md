@@ -8,6 +8,8 @@ thebase.in の APIを使ってみた。
 
 利用ライブラリ
 https://github.com/oauth-xx/oauth2/blob/master/lib/oauth2/client.rb
+参考
+https://qiita.com/mm31/items/b2bfe8d43976fafd6a9b
 
 ```.rb
 require 'oauth2'
