@@ -4,7 +4,10 @@ thebase.in の APIを使ってみた。
 ペラのomniauth-thebase画面を作って、tokenを取得した。
 
 
-### refresh token
+### refresh token を使って新しいアクセストークンを取得する
+
+利用ライブラリ
+https://github.com/oauth-xx/oauth2/blob/master/lib/oauth2/client.rb
 
 ```.rb
 require 'oauth2'
