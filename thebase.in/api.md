@@ -11,6 +11,10 @@ https://github.com/oauth-xx/oauth2/blob/master/lib/oauth2/client.rb
 参考
 https://qiita.com/mm31/items/b2bfe8d43976fafd6a9b
 
+内部で利用されているHTTP通信ライブラリ `Faraday`について
+https://codezine.jp/article/detail/11462
+https://gist.github.com/mitukiii/2775321
+
 ```.rb
 require 'oauth2'
 client_id =  'YOUR_CLIENT_ID'
