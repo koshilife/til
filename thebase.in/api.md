@@ -13,6 +13,17 @@ client_secret = 'YOUR_CLIENT_SECRET'
 site = 'https://api.thebase.in'
 client = OAuth2::Client.new(client_id, client_secret, :site => site)
 
+token = 'YOUR_TOKEN'
+refresh_token = 'YOUR_REFRESH_TOKEN'
+expires_at = 1589213588
+
+access_token = OAuth2::AccessToken.new(
+      client,
+      token,
+      refresh_token: refresh_token,
+      expires_at: expires_at
+    )
+new_access_token = access_token.refresh!
 ```
 
 ## use token 
@@ -23,8 +34,8 @@ require 'net/http'
 site = 'https://api.thebase.in'
 uri = URI.parse "#{site}/1/users/me"
 
-access_token = "HOGEHOGE"
-headers = { 'Authorization' => "Bearer #{access_token}"}
+token = 'YOUR_TOKEN'
+headers = { 'Authorization' => "Bearer #{token}"}
 
 https = Net::HTTP.new(uri.host, uri.port)
 https.use_ssl = true
