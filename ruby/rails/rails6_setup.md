@@ -22,4 +22,8 @@ $ bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java
 $ vim Gemfile
 $ bundle install
 $ rails g mongoid:config
+
+# vue setup
+./bin/rails  webpacker:install
+./bin/rails  webpacker:install:vue
 ```
