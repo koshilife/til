@@ -1,4 +1,4 @@
-# Rails 6
+# Rails 6 x Mongoid
 
 - v6.0.2
 - Front: Vue
