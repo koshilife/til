@@ -5,6 +5,7 @@
   - https://github.com/koshilife/tanita-api-ruby-client/
 - 2020/05 作成Gem
   - https://github.com/koshilife/omniauth-timetree
+  - https://github.com/koshilife/omniauth-cybozu
 
 Gemの作り方の備忘
 
