@@ -1,10 +1,10 @@
 # Gemの作り方について
 
-- 2020/01
-  - Gemを2本作った
+- 2020/01 作成Gem
   - https://github.com/koshilife/omniauth-tanita
   - https://github.com/koshilife/tanita-api-ruby-client/
-
+- 2020/05 作成Gem
+  - https://github.com/koshilife/omniauth-timetree
 
 Gemの作り方の備忘
 
