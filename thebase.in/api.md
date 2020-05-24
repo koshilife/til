@@ -12,6 +12,8 @@ https://github.com/oauth-xx/oauth2/blob/master/lib/oauth2/client.rb
 https://qiita.com/mm31/items/b2bfe8d43976fafd6a9b
 
 内部で利用されているHTTP通信ライブラリ `Faraday`について
+
+[公式doc](https://lostisland.github.io/faraday/)
 https://codezine.jp/article/detail/11462
 https://gist.github.com/mitukiii/2775321
 
