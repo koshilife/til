@@ -67,6 +67,34 @@ username*
 
 - 不明なこと
   - children の media_id ってどこで利用するかわからなかった
+  
+# IG User
+
+## business_discovery
+
+他のユーザ情報を取得できる
+
+biography*
+id*
+followers_count*
+media_count*
+username*
+website*
+
+プロフィールとフォロワーを取得するURL
+`<自身のIG_USER_ID>/?fields=business_discovery.username(<USER_NAME>){followers_count,biography}`
+
+```.json
+ "business_discovery": {
+    "followers_count": 466,
+    "biography": "HOGEHOGE",
+    "id": "相手のUSER_ID"
+  },
+  "id": "自分のUSER_ID"
+}
+```
+
+誰をフォローしているなどの情報は取れなそう。
 
 
 # IG Comment
