@@ -84,6 +84,7 @@ username*
 website*
 
 プロフィールとフォロワーを取得するURL
+
 `<自身のIG_USER_ID>/?fields=business_discovery.username(<USER_NAME>){followers_count,biography}`
 
 ```.json
@@ -148,6 +149,12 @@ IG Object はネストして展開可能
   },
   "id": "自分のUSER_ID"
 }
+```
+
+相手の media オブジェクトのページネーションする場合のリクエスト例
+
+```
+<自身のIG_USER_ID>?fields=business_discovery.username(<USER_NAME>){followers_count,media_count,media.after(AFTER_TOKEN){caption,comments_count,like_count}}
 ```
 
 誰をフォローしているなどの情報は取れなそう。
