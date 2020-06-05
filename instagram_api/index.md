@@ -72,6 +72,8 @@ username*
 
 ## business_discovery
 
+https://developers.facebook.com/docs/instagram-api/guides/business-discovery/
+
 他のユーザ情報を取得できる
 
 biography*
@@ -88,6 +90,60 @@ website*
  "business_discovery": {
     "followers_count": 466,
     "biography": "HOGEHOGE",
+    "id": "相手のUSER_ID"
+  },
+  "id": "自分のUSER_ID"
+}
+```
+
+IG Object はネストして展開可能
+
+<自身のIG_USER_ID>?fields=business_discovery.username(<USER_NAME>){followers_count,media_count,media{caption,comments_count,like_count}}`
+
+```
+"business_discovery": {
+    "followers_count": 1,
+    "media_count": 6,
+    "media": {
+      "data": [
+        {
+          "caption": "咖喱人",
+          "comments_count": 0,
+          "like_count": 0,
+          "id": "MEDIA_ID"
+        },
+        {
+          "caption": "Lantern burger",
+          "comments_count": 0,
+          "like_count": 0,
+          "id": "MEDIA_ID"
+        },
+        {
+          "caption": "けん",
+          "comments_count": 0,
+          "like_count": 0,
+          "id": "MEDIA_ID"
+        },
+        {
+          "caption": "魚鐵",
+          "comments_count": 0,
+          "like_count": 0,
+          "id": "MEDIA_ID"
+        },
+        {
+          "caption": "びすとろ大将",
+          "comments_count": 0,
+          "like_count": 0,
+          "id": "MEDIA_ID"
+        },
+        {
+          "caption": "丈参",
+          "comments_count": 2,
+          "like_count": 0,
+          "id": "MEDIA_ID"
+        }
+      ]
+    },
     "id": "相手のUSER_ID"
   },
   "id": "自分のUSER_ID"
