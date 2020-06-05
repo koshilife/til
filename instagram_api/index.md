@@ -44,6 +44,28 @@ APIも２種類
 }
 ```
 
+# IG Media
+
+```
+caption* (excludes album children)
+children* (carousel albums only)
+comments (excludes album children, replies to comments, and the caption)
+comments_count* (excludes album children and the caption, includes replies)
+id*
+ig_id
+is_comment_enabled (excludes album children)
+like_count* (excludes album children and likes on promoted posts created from the media object, includes replies)
+media_type*
+media_url* (not available on video IG Media objects that have been flagged for copyright violations)
+owner (only returned if the IG User making the query also owns the IG Media object, otherwise the username field will be included)
+permalink*
+shortcode
+thumbnail_url (only available on video IG Media objects)
+timestamp* — ISO 8601 formatted creation date in UTC (default is UTC ±00:00)
+username*
+```
+
+
 # IG Comment
 
 https://developers.facebook.com/docs/instagram-api/reference/comment
@@ -102,5 +124,109 @@ https://developers.facebook.com/docs/instagram-api/reference/comment
 }
 ```
 
+# Mension
+
+https://developers.facebook.com/docs/instagram-api/guides/mentions
+
+例:
+`<IG_USER_ID>/tags?fields=caption,children,comments_count,id,like_count,media_type,media_url,permalink,timestamp,username`
+`
+
+自身に対するメンションが含まれるメディアを取得します。
+IG Comment は含まれないので、WebHookを利用する方法が紹介されていた。
+
+# Webhooks
+
+https://developers.facebook.com/docs/instagram-api/guides/webhooks
+
+- イベント
+  - comments 自身のIG Mediaに対して新規コメント投稿時
+  - mentions 自身のスクリーンネームが含まれるメンションがつけられた時
+  - story_insights 自身が投稿したストーリーが期限切れした時
 
 
+### mentions @comment
+
+```.json
+[
+  {
+    "entry": [
+      {
+        "changes": [
+          {
+            "field": "mentions",
+            "value": {
+              "comment_id": "17894227972186120",
+              "media_id": "17918195224117851"
+            }
+          }
+        ],
+        "id": "17841405726653026",
+        "time": 1520622968
+      }
+    ],
+    "object": "instagram"
+  }
+]
+```
+
+コメント内容は GET /{ig-user-id}/mentioned_comment で取得することが可能。
+その後コメント投稿APIにつなげれば、自動返信などの用途で利用できる
+
+
+### mentions @media
+
+```.json
+[
+  {
+    "entry": [
+      {
+        "changes": [
+          {
+            "field": "mentions",
+            "value": {
+              "media_id": "17918195224117851"
+            }
+          }
+        ],
+        "id": "17841405726653026",
+        "time": 1520622968
+      }
+    ],
+    "object": "instagram"
+  }
+]
+```
+
+### story_insights
+
+ストーリーが公開終了時にインサイト情報を取得できる
+
+Webhook Body 例
+```.json
+[
+  {
+    "entry": [
+      {
+        "changes": [
+          {
+            "field": "story_insights",
+            "value": {
+              "media_id": "18023345989012587",
+              "exits": 1,
+              "replies": 0,
+              "reach": 17,
+              "taps_forward": 12,
+              "taps_back": 0,
+              "impressions": 28
+            }
+          }
+        ],
+        "id": "17841405309211844",  // Instagram Business or Creator Account ID
+        "time": 1547687043
+      }
+    ],
+    "object": "instagram"
+  }
+]
+```
