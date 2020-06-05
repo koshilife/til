@@ -65,8 +65,10 @@ timestamp* — ISO 8601 formatted creation date in UTC (default is UTC ±00:00)
 username*
 ```
 
-- 不明なこと
-  - children の media_id ってどこで利用するかわからなかった
+カルーセルの画像URLを取得したい場合はchildrenに見たいfieldsを付与すればOK
+```  
+<MEDIA_ID>?fields=children{media_url}
+```  
   
 # IG User
 
