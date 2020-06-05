@@ -230,3 +230,20 @@ Webhook Body 例
   }
 ]
 ```
+
+# Hashtag
+
+https://developers.facebook.com/docs/instagram-api/reference/hashtag/top-media#returnable-fields
+
+ハッシュタグの検索が可能、usernameを含めるなどはできないが、フィードを取得可能
+
+例:
+`<HASHTAG_ID>/top_media?user_id=<IG_USER_ID>&fields=caption,permalink`
+
+手順は
+1. IG Hashtag Searchでキーワードに対するHASHTAG_IDを検索 
+2. ハッシュタグのフィードを取得
+  - recent_media: Get a list of the most recently published photo and video IG Media objects published with a specific hashtag.
+  - top_media: Returns the most popular photo and video IG Media objects that have been tagged with the hashtag.
+
+
