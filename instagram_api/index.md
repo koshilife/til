@@ -343,3 +343,10 @@ https://developers.facebook.com/docs/instagram-api/reference/hashtag/top-media#r
   - top_media: Returns the most popular photo and video IG Media objects that have been tagged with the hashtag.
 
 
+# 所感
+
+InstagramGraphAPIは
+Comment Hashtag Media Userの４ノードのシンプルさでいろんなことがシンプルにできる
+GraphAPIの設計は凄い。
+
+Comment Hashtag Media User
