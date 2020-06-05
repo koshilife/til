@@ -65,6 +65,9 @@ timestamp* — ISO 8601 formatted creation date in UTC (default is UTC ±00:00)
 username*
 ```
 
+- 不明なこと
+  - children の media_id ってどこで利用するかわからなかった
+
 
 # IG Comment
 
