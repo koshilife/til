@@ -159,7 +159,7 @@ IG Object はネストして展開可能
 <自身のIG_USER_ID>?fields=business_discovery.username(<USER_NAME>){followers_count,media_count,media.after(AFTER_TOKEN){caption,comments_count,like_count}}
 ```
 
-なお鍵付きアカウント、著名アカウント(@kuma_power) は見つからないと表示された。制限がかけられる条件があるらしい。
+なお、相手がProユーザ以外は取得できないようだ、スクレイピングをする必要がある。
 
 ```.json
 {"error":{"message":"Invalid user id","type":"OAuthException","code":110,"error_subcode":2207013,"is_transient":false,"error_user_title":"ユーザーが見つかりません","error_user_msg":"ユーザーネームがXXXのユーザーが見つかりません","fbtrace_id":"xxx"}}
