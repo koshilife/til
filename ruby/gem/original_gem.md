@@ -27,6 +27,9 @@ gem update bundler
 ```sh
 # gemのひな形 Rspec付き
 bundle gem test_gem -t
+
+# gemのひな形 minitest
+bundle gem test_gem --test=minitest
 ```
 
 ```sh
