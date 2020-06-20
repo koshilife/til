@@ -33,8 +33,11 @@ bundle gem test_gem --test=minitest
 ```
 
 ```sh
-# test実行
+# test実行 (Rspec)
 bundle exec rspec
+
+# test実行 (minitest)
+bundle exec rake test
 
 # リリース
 bundle exec rake release
