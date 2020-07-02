@@ -25,3 +25,13 @@ API KEYなど外部に公開できない情報は、Secretという環境変数�
 
 Ruby用のCodeCovへの連携パッケージは SimpleCov と連携する形のGemがCodeCovからリリースされている。
 https://github.com/codecov/codecov-ruby
+
+## 参考
+
+- 2020-01-03 [個人gemのCIをほぼ全部Travis CIからGitHub Actionsに移行した](https://sue445.hatenablog.com/entry/2020/01/03/213506)
+  - 複数のRubyバージョンでのテストしたいケースの参考に。
+- 2020-02-08 [GitHub Actionsでrubyを使うなら ruby/setup-ruby を使おう](https://mstshiwasaki.hatenablog.com/entry/2020/02/08/130844)
+  - GitHubActions Rubyの実行環境の背景
+- GitHub Actions 設定に伴う参考記事
+  - 2020-05-19 [bitclustをGitHub Actionsでgem pushしてリリースしている](https://blog.n-z.jp/blog/2020-05-19-gem-push-in-github-actions.html)
+  - 2020-02-03 [gemパッケージのCI/CDをGitHub Actionsに移行した](https://scior.hatenablog.com/entry/2020/02/03/010230)
