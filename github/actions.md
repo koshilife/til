@@ -22,3 +22,6 @@ API KEYなど外部に公開できない情報は、Secretという環境変数�
 
 コードカバレッジの結果をどこかに保持する必要があるが、GitHub ActionsではCI実行結果は90日という制約があったので、
 簡単に連携できる [CodeCov](https://codecov.io/) を利用した。
+
+Ruby用のCodeCovへの連携パッケージは SimpleCov と連携する形のGemがCodeCovからリリースされている。
+https://github.com/codecov/codecov-ruby
