@@ -968,3 +968,231 @@ https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=35.694087,
    "status" : "OK"
 }
 ```
+
+## Place Detail
+
+東京駅のPlaceID: `ChIJC3Cf2PuLGGAROO00ukl8JwA`
+
+https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJC3Cf2PuLGGAROO00ukl8JwA&key=<API_KEY>
+
+```
+{
+   "html_attributions" : [],
+   "result" : {
+      "address_components" : [
+         {
+            "long_name" : "１丁目",
+            "short_name" : "１丁目",
+            "types" : [ "sublocality_level_3", "sublocality", "political" ]
+         },
+         {
+            "long_name" : "９",
+            "short_name" : "９",
+            "types" : [ "sublocality_level_4", "sublocality", "political" ]
+         },
+         {
+            "long_name" : "丸の内",
+            "short_name" : "丸の内",
+            "types" : [ "sublocality_level_2", "sublocality", "political" ]
+         },
+         {
+            "long_name" : "千代田区",
+            "short_name" : "千代田区",
+            "types" : [ "locality", "political" ]
+         },
+         {
+            "long_name" : "東京都",
+            "short_name" : "東京都",
+            "types" : [ "administrative_area_level_1", "political" ]
+         },
+         {
+            "long_name" : "日本",
+            "short_name" : "JP",
+            "types" : [ "country", "political" ]
+         },
+         {
+            "long_name" : "100-0005",
+            "short_name" : "100-0005",
+            "types" : [ "postal_code" ]
+         }
+      ],
+      "adr_address" : "\u003cspan class=\"country-name\"\u003e日本\u003c/span\u003e、\u003cspan class=\"postal-code\"\u003e〒100-0005\u003c/span\u003e \u003cspan class=\"region\"\u003e東京都\u003c/span\u003e\u003cspan class=\"street-address\"\u003e千代田区丸の内１丁目９\u003c/span\u003e",
+      "business_status" : "OPERATIONAL",
+      "formatted_address" : "日本、〒100-0005 東京都千代田区丸の内１丁目９",
+      "geometry" : {
+         "location" : {
+            "lat" : 35.68123620000001,
+            "lng" : 139.7671248
+         },
+         "viewport" : {
+            "northeast" : {
+               "lat" : 35.68639564999999,
+               "lng" : 139.7723041
+            },
+            "southwest" : {
+               "lat" : 35.67433665,
+               "lng" : 139.7596813
+            }
+         }
+      },
+      "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+      "id" : "d1a0bd7e4e66d58c9dbe34524ea7157b2c6b6256",
+      "name" : "東京駅",
+      "photos" : [
+         {
+            "height" : 3840,
+            "html_attributions" : [
+               "\u003ca href=\"https://maps.google.com/maps/contrib/104953319675631864082\"\u003eLin BoJiun\u003c/a\u003e"
+            ],
+            "photo_reference" : "CmRaAAAABxgwT4sfepzWNUNOVF2Hf9eFIiHH72A4LCKeaTtB4AJ397xm3EG_PDegVkXXJFGx-CGy0ERIgw3sYmut8z9svYUik8awv2uYV6YkYUTIYtugeyGrHDao9Veg4ZhjWtR4EhC13-RNzXG9Na3p7yB9rHcDGhQgdin0NOXPb6MJ5kVXsczjL2RR2w",
+            "width" : 5120
+         },
+         {
+            "height" : 1365,
+            "html_attributions" : [
+               "\u003ca href=\"https://maps.google.com/maps/contrib/107503527967622778061\"\u003eKenshi YAMADA\u003c/a\u003e"
+            ],
+            "photo_reference" : "CmRaAAAA3cOd20M93HGILCWOiJN6XCiSHnY4yz-3oaN8k0zaU7HCfGQ0g5exD2GWQ7UFF1re83sUCifGwh1kAy5HXvwj2KbQDsdDqoVRokHrQbvlRY1XizLS49DLrPz05pq7fYtrEhBRJJtdNOxtVcOJ5_Pd6WlpGhR16MrgvdpUI2ECYthisHjpU4eD3A",
+            "width" : 2048
+         },
+         {
+            "height" : 3886,
+            "html_attributions" : [
+               "\u003ca href=\"https://maps.google.com/maps/contrib/109007595065278280312\"\u003e小湯圓與爸媽的生活日記喔!\u003c/a\u003e"
+            ],
+            "photo_reference" : "CmRaAAAAMYOuE-ccPAkyfifLJT0Ze6Fm-uQFrLU2vNQTNgZGxDxVyfaUHqb0Fp3pMHHGoMM_kq02ho4twJp2u_2_p48dKMAQzya-qGLnRoktFTl2DTeSE1-4s3fHGHUtpK3GIcx2EhBMydbVPPdjAoFcLEgmYU9JGhQKsh90qn_e50q5B_-0nsdaWL6eFw",
+            "width" : 5821
+         },
+         {
+            "height" : 4000,
+            "html_attributions" : [
+               "\u003ca href=\"https://maps.google.com/maps/contrib/114248509540830931116\"\u003eneko kuro\u003c/a\u003e"
+            ],
+            "photo_reference" : "CmRaAAAANyj2bu-zKofpHIhf_0qYnw_fl708wxQzRNyvOeJY4I-MMo_pkPyJktw3Ji_VsKR0bS6JvbOWpNEFnMpVZL8L7NWT9vgcumXCx5wYBmvG_3axX3mkitQ8xv1UKhOb6mtIEhCC-DkoF1e6qr3QrBJLJdJGGhT-p4yHzeHBemAg_8vaFu8le8p1Nw",
+            "width" : 6000
+         },
+         {
+            "height" : 3792,
+            "html_attributions" : [
+               "\u003ca href=\"https://maps.google.com/maps/contrib/100455666743160437235\"\u003e選手先生\u003c/a\u003e"
+            ],
+            "photo_reference" : "CmRaAAAAAed4yskZTuE0JYgd6EKNQVEVrugWmDmOn-pgS5O8B9wwZ0aU1saJBQRBJlCmz7ZmfxS1AXOHgqJYTZqu8QPbHred_Xtp2CeddU8obO9MR05_P25lY9-qdrrdtEQjOckMEhCd9ZDpVZSvuVZT25MSpjovGhSo3D2F3rAIhxAQlslbxQTIRC04nQ",
+            "width" : 5056
+         },
+         {
+            "height" : 3456,
+            "html_attributions" : [
+               "\u003ca href=\"https://maps.google.com/maps/contrib/116725131609741867137\"\u003eきん内マン\u003c/a\u003e"
+            ],
+            "photo_reference" : "CmRaAAAA7GsVuvR19oUCcLM4bba0SghlhkFW48Fg6pYZI4kzhjywEO79_oynbajHPqoT1VFOHJmn1tTQ1TS8jb3caU1oFqakL2crDui9KqgKBStW_DfMRdgXhegI0QJHJo__u9njEhAt1TGj7wvCFF4On_U9mCfYGhT-CqGyM5S0mkwqjQ5hkfzAitBMJA",
+            "width" : 4608
+         },
+         {
+            "height" : 3024,
+            "html_attributions" : [
+               "\u003ca href=\"https://maps.google.com/maps/contrib/115416907624331316140\"\u003ekatsuaki w\u003c/a\u003e"
+            ],
+            "photo_reference" : "CmRaAAAAnHHHk1Z5xi6PBtnGwJ8QgeTF1algaDzk-OPu9FJOw4hywV-ob3PYFg0UvhWuPjGbKtW6-mYFoBmxfHQziXgn7t_XgqzK14_3_IykD00BbMsFo9kfQDO-IFNP3CWBqj68EhBpeoOqYtCrHV_busltYbXmGhSkQtPlftGxoacY3QD4jx-CMb5mmw",
+            "width" : 4032
+         },
+         {
+            "height" : 4000,
+            "html_attributions" : [
+               "\u003ca href=\"https://maps.google.com/maps/contrib/117670648883275083417\"\u003eTohru A .\u003c/a\u003e"
+            ],
+            "photo_reference" : "CmRaAAAAReAzKekaf_ZhLuitA_EtqCtNj6-HvyvU0sHtUsBDVdFFNE7k0dfsNLxfOkJ0xKFUAMFh7kp9vaUQ6vc2X0ifYsW_O4AVirz9p9NtCLfdMtvrsssf22eZPCVVgb1vWWq1EhB1-CqA6kwoEYyRUaP0irsNGhQLisxMCJSd4jLg2zAJpJfGhO4WMw",
+            "width" : 6000
+         },
+         {
+            "height" : 2736,
+            "html_attributions" : [
+               "\u003ca href=\"https://maps.google.com/maps/contrib/106977887544988359958\"\u003e南直行\u003c/a\u003e"
+            ],
+            "photo_reference" : "CmRaAAAAmW4W72pBFL4agtPsVNMEKVBUiLXwvjKL0_CDCSiwjQ6lJ7BT6lOMN7ciHh9x_lRl4XEQ4tyKa1D99sMaYxPNspyl5oaXbnwqY4EWcn7dDhxXKKwZ-zKnHBdYDnXB_cFSEhCx81qh303r362_tfU_bvAbGhQIUOgRcP8pKVBkR4lxqk5GR0rXSQ",
+            "width" : 3648
+         },
+         {
+            "height" : 3000,
+            "html_attributions" : [
+               "\u003ca href=\"https://maps.google.com/maps/contrib/117763116281813703972\"\u003eTiến Đạt Lê\u003c/a\u003e"
+            ],
+            "photo_reference" : "CmRaAAAAN1sm1JGraW32TYceJ9iGZuS9mO70_kRZtvRRpMtfyDgix5WvLB42YPUNpcAxmLofaOMplFaG9aZm2jxVCQ4wVQDQWjQ-AgrKtjOljT2Y3wD2i5a6lQDn-uj4QKGYrlByEhAqG9Z_e7BjDPl35-7encOEGhSTeAQe1oNBNxYLO_ejef4jgH36MA",
+            "width" : 4000
+         }
+      ],
+      "place_id" : "ChIJC3Cf2PuLGGAROO00ukl8JwA",
+      "plus_code" : {
+         "compound_code" : "MQJ8+FR 日本、東京都千代田区",
+         "global_code" : "8Q7XMQJ8+FR"
+      },
+      "rating" : 4.3,
+      "reference" : "ChIJC3Cf2PuLGGAROO00ukl8JwA",
+      "reviews" : [
+         {
+            "author_name" : "s t",
+            "author_url" : "https://www.google.com/maps/contrib/105615025908526109433/reviews",
+            "language" : "ja",
+            "profile_photo_url" : "https://lh5.ggpht.com/--tW9h6s0hzU/AAAAAAAAAAI/AAAAAAAAAAA/T_HTP69cOmc/s128-c0x00000000-cc-rp-mo/photo.jpg",
+            "rating" : 5,
+            "relative_time_description" : "過去 1 週間以内",
+            "text" : "首都東京の名を持つのに相応しい駅。\n利便性、乗り換え、新幹線に在来線は完璧。\n駅ナカやGRANSTAと飲食\n買物も充実していて駅ナカだも十分楽しめる。\n八重洲口と丸の内口では全く雰囲気が異なるり煉瓦造りの駅舎は観光スポットの一つ。最近はウエディングフォトのカップルも激増している",
+            "time" : 1593240881
+         },
+         {
+            "author_name" : "scher irm",
+            "author_url" : "https://www.google.com/maps/contrib/108585473636010637414/reviews",
+            "language" : "ja",
+            "profile_photo_url" : "https://lh6.ggpht.com/-vOeYd0XQKe0/AAAAAAAAAAI/AAAAAAAAAAA/xuMt41lh2p0/s128-c0x00000000-cc-rp-mo-ba3/photo.jpg",
+            "rating" : 5,
+            "relative_time_description" : "過去 1 週間以内",
+            "text" : "この駅は東海道新幹線東北新幹線山形新幹線秋田新幹線上越新幹線北陸新幹線北海道新幹線上野東京ライン丸の内線特急列車さざなみ大回り列車山手線埼京線京浜東北線特急列車あかぎ特急列車あずさ普通列車湘南新宿ラインという特急列車だったり普通列車だったり快速電車だったり特別快速電車だったり地下鉄だったりいろいろ走っている東京駅東京には開かずの踏み切りがあります開かずの踏み切りは何秒かするとすぐ踏み切りは閉まります特に線路の多い踏み切りは踏み切りは通らず鉄橋を使って行きますよ。わかったらグッドボタンよろしくね。",
+            "time" : 1593251449
+         },
+         {
+            "author_name" : "西村朋子",
+            "author_url" : "https://www.google.com/maps/contrib/115011833888610544874/reviews",
+            "language" : "ja",
+            "profile_photo_url" : "https://lh6.ggpht.com/-o9HViTOltc4/AAAAAAAAAAI/AAAAAAAAAAA/n6f6GLhMfWo/s128-c0x00000000-cc-rp-mo/photo.jpg",
+            "rating" : 5,
+            "relative_time_description" : "1 か月前",
+            "text" : "言わずも知れた東京駅！\nやっぱり夜の感じが１番美しいと思います。ライトアップされていてとても風情があります。\n東京に来た際には見て行ってみてはいかがですか？☺️✨",
+            "time" : 1590911770
+         },
+         {
+            "author_name" : "こ",
+            "author_url" : "https://www.google.com/maps/contrib/105976294949780963902/reviews",
+            "language" : "ja",
+            "profile_photo_url" : "https://lh3.ggpht.com/-YAJQUL41YkI/AAAAAAAAAAI/AAAAAAAAAAA/gnHf6Tp0jIs/s128-c0x00000000-cc-rp-mo/photo.jpg",
+            "rating" : 3,
+            "relative_time_description" : "1 週間前",
+            "text" : "警察がすぐに来るから、事故っても、保険？目当て？かすぐにわかるから保険会社も、保険会社もたくさんあり、朝の、５時に事故っても安心安全な",
+            "time" : 1593115764
+         },
+         {
+            "author_name" : "Takeshi M",
+            "author_url" : "https://www.google.com/maps/contrib/118090986833319239577/reviews",
+            "language" : "ja",
+            "profile_photo_url" : "https://lh4.ggpht.com/-Svp3g4IDPsE/AAAAAAAAAAI/AAAAAAAAAAA/aoKYg77uLXI/s128-c0x00000000-cc-rp-mo-ba5/photo.jpg",
+            "rating" : 5,
+            "relative_time_description" : "2 週間前",
+            "text" : "美しい駅舎は東京の玄関にふさわしいと思います。この15年で駅の周辺は高層ビルばかりになりました。近代的なビルとクラッシックな駅舎のコントラストも良いと思います。",
+            "time" : 1592062047
+         }
+      ],
+      "scope" : "GOOGLE",
+      "types" : [
+         "transit_station",
+         "train_station",
+         "subway_station",
+         "point_of_interest",
+         "establishment"
+      ],
+      "url" : "https://maps.google.com/?cid=11114180190203192",
+      "user_ratings_total" : 6883,
+      "utc_offset" : 540,
+      "vicinity" : "千代田区丸の内１丁目",
+      "website" : "https://www.tokyoinfo.com/"
+   },
+   "status" : "OK"
+}
+```
