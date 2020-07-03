@@ -15,6 +15,8 @@ https://developers.google.com/maps/billing/gmp-billing#find-place-id-only
 https://developers.google.com/maps/billing/gmp-billing#find-place
 
 1リクエスト 0.017$
+
+Place Search/Place Detail で基本情報を取得する場合。
   
 ## Directions
 
