@@ -35,6 +35,109 @@ https://developers.google.com/places/web-service/search?hl=ja#PlaceSearchResults
 }
 ```
 
+### キーワード検索例
+
+キーワード: `Shibuya`
+
+```
+https://maps.googleapis.com/maps/api/place/findplacefromtext/json?inputtype=textquery&input=Shibuya&fields=photos,formatted_address,name,geometry&key=<API_KEY>
+```
+
+```
+{
+   "candidates" : [
+      {
+         "formatted_address" : "日本、東京都渋谷区",
+         "geometry" : {
+            "location" : {
+               "lat" : 35.6619707,
+               "lng" : 139.703795
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 35.692129,
+                  "lng" : 139.723862
+               },
+               "southwest" : {
+                  "lat" : 35.64162,
+                  "lng" : 139.6613389
+               }
+            }
+         },
+         "name" : "渋谷区",
+         "photos" : [
+            {
+               "height" : 3024,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/101483591465545349363\"\u003eAlejandra Wachenfeld\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAbNJXA-yA0RA74hX65zEwUUe8lcsE_QiOi_oY3Ka_h1rW_JLwBugI9FJTmtTKC6Nh_5rcmzkEGmjFakgBEyTDNaYWLfeYNBcTG-3yy5WhAucb_MMayBiJr7AN-CGPf4h1EhBS8eGJnbdo8jELtBsqNQ2sGhS04kFAVCWy00bD12WNlH-OKG2upg",
+               "width" : 4032
+            }
+         ]
+      }
+   ],
+   "status" : "OK"
+}
+```
+
+### 電話番号で場所検索
+
+電話番号: `+81334651111` (NHK)
+
+```
+https://maps.googleapis.com/maps/api/place/findplacefromtext/json?inputtype=phonenumber&input=%2B81334651111&fields=formatted_address,name,geometry&key=<API_KEY>
+```
+
+```.json
+{
+   "candidates" : [
+      {
+         "formatted_address" : "日本、〒150-0041 東京都渋谷区神南２丁目２−１",
+         "geometry" : {
+            "location" : {
+               "lat" : 35.66500200000001,
+               "lng" : 139.6953695
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 35.66635098029151,
+                  "lng" : 139.6967184802915
+               },
+               "southwest" : {
+                  "lat" : 35.66365301970851,
+                  "lng" : 139.6940205197085
+               }
+            }
+         },
+         "name" : "NHK"
+      },
+      {
+         "formatted_address" : "日本、〒150-0041 東京都渋谷区神南２丁目２−１",
+         "geometry" : {
+            "location" : {
+               "lat" : 35.6647596,
+               "lng" : 139.6956746
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 35.66610858029149,
+                  "lng" : 139.6970235802915
+               },
+               "southwest" : {
+                  "lat" : 35.6634106197085,
+                  "lng" : 139.6943256197085
+               }
+            }
+         },
+         "name" : "NHK World Radio Japan"
+      }
+   ],
+   "status" : "OK"
+}
+```
+
+
 ## Nearby Query
 
 例えば、千代田区役所(35.694087, 139.753436)から3km以内の駅を調べるなどができる。
