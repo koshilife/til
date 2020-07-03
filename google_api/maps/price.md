@@ -9,15 +9,12 @@ Google Maps API 利用料金
 無料
 https://developers.google.com/maps/billing/gmp-billing#find-place-id-only
 
-## Places textSearch
 
-- 10万回まで、1000回あたり32.0$
-- 10-50万回まで、1000回あたり25.6$
-- 50万回以上、問い合わせ
+## Find Place + 住所などの基本情報
 
-例:
-- 10000回 => 320$
-- 100,000回 => 3,200$
+https://developers.google.com/maps/billing/gmp-billing#find-place
+
+1リクエスト 0.017$
   
 ## Directions
 
