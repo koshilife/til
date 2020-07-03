@@ -4,6 +4,11 @@ Google Maps API 利用料金
 
 月間の利用料に応じて料金テーブルに応じて従量課金。※2020/02時点
 
+## Find Place – ID only 
+
+無料
+https://developers.google.com/maps/billing/gmp-billing#find-place-id-only
+
 ## Places textSearch
 
 - 10万回まで、1000回あたり32.0$
