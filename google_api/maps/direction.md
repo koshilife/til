@@ -4,7 +4,25 @@ refs https://developers.google.com/maps/documentation/directions/start?hl=ja
 
 1000回あたり5$程度で利用できるルート検索API
 
-例: 東京駅から渋谷駅まで
+### RequestParameters
+
+- required
+  - origin, destination
+    - キーワード: `origin=24+Sussex+Drive+Ottawa+ON`
+    - 緯度経度: `origin=41.43206,-81.38992`
+    - PlaceID: `origin=place_id:ChIJ3S-JXmauEmsRUcIaWtf4MzE`
+  - key
+- options こちら参考 => https://developers.google.com/maps/documentation/directions/intro
+  - mode (defaults to driving)
+  - waypoints: 経由地点
+  - alternatives: 
+  - avoid: 
+  - language: 
+  - units
+  - region
+  - ...
+
+### 例: 東京駅から渋谷駅まで
 
 https://maps.googleapis.com/maps/api/directions/json?origin=東京駅&destination=渋谷駅&language=ja&key=<API_KEY>
 ```
