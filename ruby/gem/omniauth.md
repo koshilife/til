@@ -202,3 +202,13 @@ https://github.com/omniauth/omniauth-oauth2/blob/master/lib/omniauth/strategies/
         fail!(:failed_to_connect, e)
       end
 ```
+
+# テストについて
+
+## 作成した Strategyのテスト
+
+TODO
+
+## OmniAuthを組み込んだアプリ側のテスト
+
+TODO
