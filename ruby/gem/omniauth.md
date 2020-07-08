@@ -205,12 +205,13 @@ https://github.com/omniauth/omniauth-oauth2/blob/master/lib/omniauth/strategies/
 
 # テストについて
 
-https://github.com/omniauth/omniauth/wiki/Integration-Testing
 
 ## 作成した Strategyのテスト
 
-TODO
+- [rack middlewareのテストをrspecで書いてみた](https://qiita.com/ogawatti/items/4db6dbdfb2405342e0da)
+- [OmniAuth Strategyのテスト例(minitest)](https://0xacab.org/riseup/omniauth-sso/-/blob/ae91d9373ff8f93eb44ea0f53d71b80adb48639b/test/omniauth/strategies/sso_test.rb)
 
 ## OmniAuthを組み込んだアプリ側のテスト
 
-TODO
+- https://github.com/omniauth/omniauth/wiki/Integration-Testing
+  - `OmniAuth.config.test_mode = true`
