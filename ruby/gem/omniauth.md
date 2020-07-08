@@ -126,7 +126,7 @@ https://github.com/omniauth/omniauth/blob/master/lib/omniauth/strategy.rb#L203:L
 https://github.com/omniauth/omniauth/blob/master/lib/omniauth/strategy.rb#L327:L329
 継承したStategies 側に実装を託している。
 
-```
+```.rb
     # @abstract This method is called when the user is on the request path. You should
     # perform any information gathering you need to be able to authenticate
     # the user in this phase.
@@ -141,5 +141,64 @@ https://github.com/omniauth/omniauth-oauth2/blob/master/lib/omniauth/strategies/
 ```.rb
       def request_phase
         redirect client.auth_code.authorize_url({:redirect_uri => callback_url}.merge(authorize_params))
+      end
+```
+
+コールバックフェーズは `callback_call` メソッド内からコールされる仕組みで実装されており
+
+https://github.com/omniauth/omniauth/blob/master/lib/omniauth/strategy.rb#L231:L239
+
+```.rb
+    # Performs the steps necessary to run the callback phase of a strategy.
+    def callback_call
+      setup_phase
+      log :info, 'Callback phase initiated.'
+      @env['omniauth.origin'] = session.delete('omniauth.origin')
+      @env['omniauth.origin'] = nil if env['omniauth.origin'] == ''
+      @env['omniauth.params'] = session.delete('omniauth.params') || {}
+      OmniAuth.config.before_callback_phase.call(@env) if OmniAuth.config.before_callback_phase
+      callback_phase
+    end
+```
+
+https://github.com/omniauth/omniauth/blob/master/lib/omniauth/strategy.rb#L371:L374
+ここで env['omniauth.auth'] に値をセットしている。
+
+```.rb
+    def callback_phase
+      env['omniauth.auth'] = auth_hash
+      call_app!
+    end
+    
+    def auth_hash
+      hash = AuthHash.new(:provider => name, :uid => uid)
+      hash.info = info unless skip_info?
+      hash.credentials = credentials if credentials
+      hash.extra = extra if extra
+      hash
+    end
+```
+
+oauth2だと認可コードをアクセストークンへの変更処理が追加実装されている。
+https://github.com/omniauth/omniauth-oauth2/blob/master/lib/omniauth/strategies/oauth2.rb#L66:L83
+
+```.rb
+      def callback_phase # rubocop:disable AbcSize, CyclomaticComplexity, MethodLength, PerceivedComplexity
+        error = request.params["error_reason"] || request.params["error"]
+        if error
+          fail!(error, CallbackError.new(request.params["error"], request.params["error_description"] || request.params["error_reason"], request.params["error_uri"]))
+        elsif !options.provider_ignores_state && (request.params["state"].to_s.empty? || request.params["state"] != session.delete("omniauth.state"))
+          fail!(:csrf_detected, CallbackError.new(:csrf_detected, "CSRF detected"))
+        else
+          self.access_token = build_access_token
+          self.access_token = access_token.refresh! if access_token.expired?
+          super
+        end
+      rescue ::OAuth2::Error, CallbackError => e
+        fail!(:invalid_credentials, e)
+      rescue ::Timeout::Error, ::Errno::ETIMEDOUT => e
+        fail!(:timeout, e)
+      rescue ::SocketError => e
+        fail!(:failed_to_connect, e)
       end
 ```
