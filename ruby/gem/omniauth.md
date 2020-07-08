@@ -205,6 +205,8 @@ https://github.com/omniauth/omniauth-oauth2/blob/master/lib/omniauth/strategies/
 
 # テストについて
 
+https://github.com/omniauth/omniauth/wiki/Integration-Testing
+
 ## 作成した Strategyのテスト
 
 TODO
