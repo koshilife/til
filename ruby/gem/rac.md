@@ -43,10 +43,12 @@ run HelloRackApp.new
 status,headers,body等を加工して引き渡すことが可能となる。Unix,Linuxでいうパイプ的な考え方に似ている？
 Racからたくさんの便利Middlewareが提供されており、Railsでこれら標準Rac+独自Racを組み合わせてWebフレームワークを作っている。
 
-
+認証系ライブラリの [devise](https://github.com/heartcombo/devise)や[OmniAuth](https://github.com/omniauth/omniauth/) もRack basedなライブラリである。
 
 ### 参考:
 
 - [Rack入門 Rack Middleware編 (1/3)](https://qiita.com/nishio-dens/items/8011842f50995f46eafe)
 - [Rack入門 Rack Middleware編 (2/3)](https://qiita.com/nishio-dens/items/852d7604b34d20514a70)
 - [Rack入門 Rack Middleware編 (3/3)](https://qiita.com/nishio-dens/items/e293f15856d849d3862b)
+- [メモ: Rack::Builderについて](https://steemit.com/ruby/@okazu/rack-builder)
+- [Rails Guide Rails と Rack](https://railsguides.jp/rails_on_rack.html)
