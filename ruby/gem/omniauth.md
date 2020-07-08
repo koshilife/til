@@ -37,3 +37,54 @@
   - [omniauth-google-oauth2](https://github.com/zquestz/omniauth-google-oauth2)
   - [omniauth-twitter](https://github.com/arunagw/omniauth-twitter)
   - [omniauth-slack](https://github.com/kmrshntr/omniauth-slack)
+
+## 本家のコードリーディングメモ
+
+Middlewareの登録、Railsアプリでは以下のように行う。
+
+```.rb
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :zoom, zoom_client_id, zoom_client_secret, :scope => 'user:read'
+end
+```
+
+https://github.com/omniauth/omniauth/blob/master/lib/omniauth/builder.rb#L29:L38
+
+OmniAuth::Builder内で `def provider(klass, *args, &block)` メソッドで、 middleware の登録が行われており、
+継承元の `::Rack::Builder#use` メソッド https://www.rubydoc.info/gems/rack/Rack/Builder#use-instance_method
+にてミドルウェアを追加登録している。
+
+
+
+リクエストフェーズやコールバックフェーズの発動ロジック
+https://github.com/omniauth/omniauth/blob/master/lib/omniauth/strategy.rb#L177:L193
+
+```.rb
+    # The logic for dispatching any additional actions that need
+    # to be taken. For instance, calling the request phase if
+    # the request path is recognized.
+    #
+    # @param env [Hash] The Rack environment.
+    def call!(env) # rubocop:disable CyclomaticComplexity, PerceivedComplexity
+      unless env['rack.session']
+        error = OmniAuth::NoSessionError.new('You must provide a session to use OmniAuth.')
+        raise(error)
+      end
+
+      @env = env
+      @env['omniauth.strategy'] = self if on_auth_path?
+
+      return mock_call!(env) if OmniAuth.config.test_mode
+      return options_call if on_auth_path? && options_request?
+      return request_call if on_request_path? && OmniAuth.config.allowed_request_methods.include?(request.request_method.downcase.to_sym)
+      return callback_call if on_callback_path?
+      return other_phase if respond_to?(:other_phase)
+
+      @app.call(env)
+    end
+```
+
+testmode フラグなら、mock_call!(env)
+on_auth_path?, options_request?, on_request_path?, on_callback_path? パスなら、どのロジックを呼び出すか振り分けている。
+どこにも引っかからない場合は、親のRacアプリに処理を戻す。
+
