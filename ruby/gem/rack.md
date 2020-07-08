@@ -1,10 +1,10 @@
-# Racについて
+# Rackについて
 
 https://github.com/rack/rack
 
 Rack, a modular Ruby webserver interface
 
-## Racとは
+## Rackとは
 
 ウェブサーバ用の標準化されたインターフェースであり
 Puma、Unicornなどのアプリケーション・サーバー
@@ -14,7 +14,7 @@ Rails、SinatraなどのWebフレームワークも採用している
 
 PythonでのWSGIと同位置付けであり、Racの思想としても影響を受けているとのこと。
 
-## Racの作り方
+## Rackの作り方
 
 基本的には、
 envを引数で受け取り、HTTPステータス、ヘッダー、ボディの３つの情報を返すcallメソッドを用意するだけで作れる
@@ -33,7 +33,7 @@ end
 run HelloRackApp.new
 ```
 
-## Rac Middleware
+## Rack Middleware
 
 参考記事より
 
