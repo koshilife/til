@@ -88,3 +88,58 @@ testmode フラグなら、mock_call!(env)
 on_auth_path?, options_request?, on_request_path?, on_callback_path? パスなら、どのロジックを呼び出すか振り分けている。
 どこにも引っかからない場合は、親のRacアプリに処理を戻す。
 
+セットアップフェーズ、リクエストフェーズは、 `request_call` メソッドから呼ばれる仕組み。
+
+https://github.com/omniauth/omniauth/blob/master/lib/omniauth/strategy.rb#L203:L228
+
+
+```.rb
+    # Performs the steps necessary to run the request phase of a strategy.
+    def request_call # rubocop:disable CyclomaticComplexity, MethodLength, PerceivedComplexity
+      setup_phase
+      log :info, 'Request phase initiated.'
+
+      # store query params from the request url, extracted in the callback_phase
+      session['omniauth.params'] = request.GET
+      OmniAuth.config.before_request_phase.call(env) if OmniAuth.config.before_request_phase
+
+      if options.form.respond_to?(:call)
+        log :info, 'Rendering form from supplied Rack endpoint.'
+        options.form.call(env)
+      elsif options.form
+        log :info, 'Rendering form from underlying application.'
+        call_app!
+      elsif !options.origin_param
+        request_phase
+      else
+        if request.params[options.origin_param]
+          env['rack.session']['omniauth.origin'] = request.params[options.origin_param]
+        elsif env['HTTP_REFERER'] && !env['HTTP_REFERER'].match(/#{request_path}$/)
+          env['rack.session']['omniauth.origin'] = env['HTTP_REFERER']
+        end
+
+        request_phase
+      end
+    end
+```
+
+https://github.com/omniauth/omniauth/blob/master/lib/omniauth/strategy.rb#L327:L329
+継承したStategies 側に実装を託している。
+
+```
+    # @abstract This method is called when the user is on the request path. You should
+    # perform any information gathering you need to be able to authenticate
+    # the user in this phase.
+    def request_phase
+      raise(NotImplementedError)
+    end
+```
+
+oauth2だと認可画面へのリダイレクトの実装がされている。
+https://github.com/omniauth/omniauth-oauth2/blob/master/lib/omniauth/strategies/oauth2.rb#L47:L49
+
+```.rb
+      def request_phase
+        redirect client.auth_code.authorize_url({:redirect_uri => callback_url}.merge(authorize_params))
+      end
+```
