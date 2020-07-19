@@ -32,10 +32,11 @@ omniauth-instagram-graph reading memo
 
 ```
 callback_phase での振る舞いが異なる
-options.exchange_access_token_to_long_lived で分岐。
+options.exchange_access_token_to_long_lived で短期トークンから長期トークンに変換する処理の有無を制御
+短期トークン取得までは、build_access_token 内の処理同様。
+また長期トークンが切れる前にリフレッシュすることが可能だが、refresh_token という概念がないので、切れる前のアクセストークンをリクエストパラメーターに仕込んでリクエストする仕様とのこと。
 
-code coverage 100% でないので、コントリビュートチャンス
-user_profile 取得時のテストがない。
+その他、code coverage 100% でなく、長期トークンへの交換や user_profile 取得時のケースがない。
 ```
 
 ## [InstagramグラフAPI](https://developers.facebook.com/docs/instagram-api)
