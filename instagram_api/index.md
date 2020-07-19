@@ -17,7 +17,26 @@ APIも２種類
 ## [Instagram 基本表示 API](https://developers.facebook.com/docs/instagram-basic-display-api)
 
 - OAuth認証した本人のプロフィール、画像、動画、アルバム情報へアクセス可能
-- `GET /{user-id}` でOAuth認証したアカウント以外のユーザ情報が取れるかは不明。
+- `GET /{user-id}` でOAuth認証したアカウント以外のユーザ情報が取れない。
+
+
+- OAuth認証として利用可能
+  - [短期トークン 60分](https://developers.facebook.com/docs/instagram-basic-display-api/overview) 
+  - [長期トークン 60日](https://developers.facebook.com/docs/instagram-basic-display-api/guides/long-lived-access-tokens#get-a-long-lived-token)　
+
+参考ライブラリ:
+- [RubyGems omniauth-instagram](https://github.com/omniauth/omniauth-instagram) 旧API
+- [RubyGems omniauth-instagram-graph](https://rubygems.org/gems/omniauth-instagram-graph) 本API対応
+
+omniauth-instagram-graph reading memo
+
+```
+callback_phase での振る舞いが異なる
+options.exchange_access_token_to_long_lived で分岐。
+
+code coverage 100% でないので、コントリビュートチャンス
+user_profile 取得時のテストがない。
+```
 
 ## [InstagramグラフAPI](https://developers.facebook.com/docs/instagram-api)
 
