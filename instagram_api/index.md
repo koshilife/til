@@ -23,6 +23,7 @@ APIも２種類
 - OAuth認証として利用可能
   - [短期トークン 60分](https://developers.facebook.com/docs/instagram-basic-display-api/overview) 
   - [長期トークン 60日](https://developers.facebook.com/docs/instagram-basic-display-api/guides/long-lived-access-tokens#get-a-long-lived-token)　
+    - [refresh access token](https://developers.facebook.com/docs/instagram-basic-display-api/reference/refresh_access_token#reading)
 
 参考ライブラリ:
 - [RubyGems omniauth-instagram](https://github.com/omniauth/omniauth-instagram) 旧API
