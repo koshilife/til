@@ -83,6 +83,45 @@ Foo2::Hoge2
 ### Gemライブラリ構成で collapse
 
 
-```.rb
-TODO
+```.sh
+$ bundle gem zeitwerk_sandbox_gem
+(gemspec 内の TODOを削除するなどbundleが実行できるようにする)
+$ echo "gem 'zeitwerk'" >> Gemfile
+$ bundle
+
+$ cd lib/zeitwerk_sandbox_gem
+$ mkdir -p bar foo1/bar foo2/bar
+$ echo "class Hoge; def self.hello; puts name; end; end" > bar/hoge.rb
+$ echo "module Foo1; class Hoge1; def self.hello; puts name; end; end; end" > foo1/bar/hoge1.rb
+$ echo "module Foo2; class Hoge2; def self.hello; puts name; end; end; end" > foo2/bar/hoge2.rb
+```
+
+```
+$ tree
+.
+├── CODE_OF_CONDUCT.md
+├── Gemfile
+├── Gemfile.lock
+├── LICENSE.txt
+├── README.md
+├── Rakefile
+├── bin
+│   ├── console
+│   └── setup
+├── lib
+│   ├── zeitwerk_sandbox_gem
+│   │   ├── bar
+│   │   │   └── hoge.rb
+│   │   ├── foo1
+│   │   │   └── bar
+│   │   │       └── hoge1.rb
+│   │   ├── foo2
+│   │   │   └── bar
+│   │   │       └── hoge2.rb
+│   │   └── version.rb
+│   └── zeitwerk_sandbox_gem.rb
+├── test
+│   ├── test_helper.rb
+│   └── zeitwerk_sandbox_gem_test.rb
+└── zeitwerk_sandbox_gem.gemspec
 ```
