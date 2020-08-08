@@ -39,3 +39,43 @@ $ tree
         └── hoge2.rb
 ```
 
+メインファイル
+
+```main.rb
+require 'zeitwerk'
+
+loader = Zeitwerk::Loader.new
+loader.push_dir __dir__
+loader.collapse('bar') # bar/hoge.rb に対して適用
+loader.collapse('*/bar') # foo1/bar/hoge1.rb, foo2/bar/hoge2.rb に対して適用
+loader.log!
+loader.setup
+```
+
+実行してみる
+
+```.sh
+$ irb
+>> require './main'
+Zeitwerk@952b8d: autoload set for Foo1, to be autovivified from /Users/koshilife/zeitwerk_sandbox/foo1
+Zeitwerk@952b8d: autoload set for Main, to be loaded from /Users/koshilife/zeitwerk_sandbox/main.rb
+Zeitwerk@952b8d: autoload set for Foo2, to be autovivified from /Users/koshilife/koshilife/zeitwerk_sandbox/foo2
+Zeitwerk@952b8d: autoload set for Hoge, to be loaded from /Users/koshilife/zeitwerk_sandbox/bar/hoge.rb
+=> true
+>> Hoge.hello
+Zeitwerk@952b8d: constant Hoge loaded from file /Users/koshilife/zeitwerk_sandbox/bar/hoge.rb
+Hoge
+
+>> Foo1::Hoge1.hello
+Zeitwerk@952b8d: module Foo1 autovivified from directory /Users/koshilife/zeitwerk_sandbox/foo1
+Zeitwerk@952b8d: autoload set for Foo1::Hoge1, to be loaded from /Users/koshilife/zeitwerk_sandbox/foo1/bar/hoge1.rb
+Zeitwerk@952b8d: constant Foo1::Hoge1 loaded from file /Users/koshilife/zeitwerk_sandbox/foo1/bar/hoge1.rb
+Foo1::Hoge1
+
+>> Foo2::Hoge2.hello
+Zeitwerk@952b8d: module Foo2 autovivified from directory /Users/koshilife/zeitwerk_sandbox/foo2
+Zeitwerk@952b8d: autoload set for Foo2::Hoge2, to be loaded from /Users/koshilife/zeitwerk_sandbox/foo2/bar/hoge2.rb
+Zeitwerk@952b8d: constant Foo2::Hoge2 loaded from file /Users/koshilife/zeitwerk_sandbox/foo2/bar/hoge2.rb
+Foo2::Hoge2
+```
+
