@@ -3,6 +3,10 @@
 Rails6から採用されているモジュール、クラス読み込みを簡単にしてくれるライブラリ
 [fxn/zeitwerk](https://github.com/fxn/zeitwerk)について備忘。
 
+- 試した環境
+  - ruby 2.6.3p62
+  - zeitwerk 2.4.0
+
 ## Loader#collapse
 
 Gemライブラリ内で読み込み側でネームスペースに含めずに、ディレクトリを作ってクラスをまとめたいケースが有り、
