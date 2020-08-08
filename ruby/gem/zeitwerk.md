@@ -9,6 +9,8 @@ Rails6から採用されているモジュール、クラス読み込みを簡�
 
 ## Loader#collapse
 
+https://github.com/fxn/zeitwerk#collapsing-directories
+
 Gemライブラリ内で読み込み側でネームスペースに含めずに、ディレクトリを作ってクラスをまとめたいケースが有り、
 `loader.collapse`の機能を用いた。
 
