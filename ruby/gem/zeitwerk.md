@@ -48,6 +48,7 @@ loader = Zeitwerk::Loader.new
 loader.push_dir __dir__
 loader.collapse('bar') # bar/hoge.rb に対して適用
 loader.collapse('*/bar') # foo1/bar/hoge1.rb, foo2/bar/hoge2.rb に対して適用
+# loader.collapse('**/bar') # の１行で bar ディレクトリ はnamespaceから外される。
 loader.log!
 loader.setup
 ```
