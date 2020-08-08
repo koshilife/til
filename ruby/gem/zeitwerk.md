@@ -49,7 +49,7 @@ loader.push_dir __dir__
 loader.collapse('bar') # bar/hoge.rb に対して適用
 loader.collapse('*/bar') # foo1/bar/hoge1.rb, foo2/bar/hoge2.rb に対して適用
 # loader.collapse('**/bar') # の１行で bar ディレクトリ はnamespaceから外される。
-loader.log!
+loader.log! # 確認のため、ログ機能を有効化
 loader.setup
 ```
 
@@ -125,3 +125,22 @@ $ tree
 │   └── zeitwerk_sandbox_gem_test.rb
 └── zeitwerk_sandbox_gem.gemspec
 ```
+
+メインファイル `lib/zeitwerk_sandbox_gem.rb`
+
+```lib/zeitwerk_sandbox_gem.rb
+require 'zeitwerk'
+loader = Zeitwerk::Loader.for_gem
+loader.collapse('lib/zeitwerk_sandbox_gem/bar')
+loader.collapse('lib/zeitwerk_sandbox_gem/foo1/bar')
+loader.collapse('lib/zeitwerk_sandbox_gem/foo2/bar')
+# loader.collapse('**/bar') # この１行でも可
+loader.log! # 確認のため、ログ機能を有効化
+loader.setup
+
+puts "[autoloads]"
+loader.autoloads.each {|item| puts "  - #{item}"}
+puts "[collapse_dirs]"
+loader.collapse_dirs.each {|item| puts "  - #{item}"}
+```
+
