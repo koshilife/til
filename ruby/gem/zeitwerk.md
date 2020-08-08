@@ -54,8 +54,8 @@ loader.setup
 
 実行してみる
 
-```.sh
-$ irb
+```.rb
+# $ irb
 >> require './main'
 Zeitwerk@952b8d: autoload set for Foo1, to be autovivified from /Users/koshilife/zeitwerk_sandbox/foo1
 Zeitwerk@952b8d: autoload set for Main, to be loaded from /Users/koshilife/zeitwerk_sandbox/main.rb
