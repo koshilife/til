@@ -138,6 +138,7 @@ loader.collapse('lib/zeitwerk_sandbox_gem/foo2/bar')
 loader.log! # 確認のため、ログ機能を有効化
 loader.setup
 
+# 確認用のログ
 puts "[autoloads]"
 loader.autoloads.each {|item| puts "  - #{item}"}
 puts "[collapse_dirs]"
