@@ -10,7 +10,7 @@ Gemライブラリ内で読み込み側でネームスペースに含めずに�
 
 [loader.rb](https://github.com/fxn/zeitwerk/blob/master/lib/zeitwerk/loader.rb)
 
-### まず、Gemではなくシンプルなrubyファイルで試してみる。
+### まず、Gem構成ではなくシンプルなrubyファイルのみで試してみる。
 
 ファイル構成
 ```.sh
@@ -80,3 +80,9 @@ Zeitwerk@952b8d: constant Foo2::Hoge2 loaded from file /Users/koshilife/zeitwerk
 Foo2::Hoge2
 ```
 
+### Gemライブラリ構成で collapse
+
+
+```.rb
+TODO
+```
