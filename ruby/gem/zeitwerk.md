@@ -91,9 +91,9 @@ $ bundle
 
 $ cd lib/zeitwerk_sandbox_gem
 $ mkdir -p bar foo1/bar foo2/bar
-$ echo "class Hoge; def self.hello; puts name; end; end" > bar/hoge.rb
-$ echo "module Foo1; class Hoge1; def self.hello; puts name; end; end; end" > foo1/bar/hoge1.rb
-$ echo "module Foo2; class Hoge2; def self.hello; puts name; end; end; end" > foo2/bar/hoge2.rb
+$ echo "module ZeitwerkSandboxGem class Hoge; def self.hello; puts name; end; end; end" > bar/hoge.rb
+$ echo "ZeitwerkSandboxGem module Foo1; class Hoge1; def self.hello; puts name; end; end; end; end" > foo1/bar/hoge1.rb
+$ echo "ZeitwerkSandboxGem module Foo2; class Hoge2; def self.hello; puts name; end; end; end; end" > foo2/bar/hoge2.rb
 ```
 
 ```
