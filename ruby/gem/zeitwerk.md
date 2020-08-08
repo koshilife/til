@@ -144,3 +144,39 @@ puts "[collapse_dirs]"
 loader.collapse_dirs.each {|item| puts "  - #{item}"}
 ```
 
+試してみる
+```.rb
+$ ./bin/console
+Zeitwerk@zeitwerk_sandbox_gem: file /Users/koshilife/zeitwerk_sandbox_gem/lib/zeitwerk_sandbox_gem.rb is ignored because ZeitwerkSandboxGem is already defined
+Zeitwerk@zeitwerk_sandbox_gem: autoload set for ZeitwerkSandboxGem::Foo1, to be autovivified from /Users/koshilife/zeitwerk_sandbox_gem/lib/zeitwerk_sandbox_gem/foo1
+Zeitwerk@zeitwerk_sandbox_gem: autoload set for ZeitwerkSandboxGem::Foo2, to be autovivified from /Users/koshilife/zeitwerk_sandbox_gem/lib/zeitwerk_sandbox_gem/foo2
+Zeitwerk@zeitwerk_sandbox_gem: file /Users/koshilife/zeitwerk_sandbox_gem/lib/zeitwerk_sandbox_gem/version.rb is ignored because ZeitwerkSandboxGem::VERSION is already defined
+Zeitwerk@zeitwerk_sandbox_gem: autoload set for ZeitwerkSandboxGem::Hoge, to be loaded from /Users/koshilife/zeitwerk_sandbox_gem/lib/zeitwerk_sandbox_gem/bar/hoge.rb
+[autoloads]
+  - ["/Users/koshilife/zeitwerk_sandbox_gem/lib/zeitwerk_sandbox_gem/foo1", [ZeitwerkSandboxGem, :Foo1]]
+  - ["/Users/koshilife/zeitwerk_sandbox_gem/lib/zeitwerk_sandbox_gem/foo2", [ZeitwerkSandboxGem, :Foo2]]
+  - ["/Users/koshilife/zeitwerk_sandbox_gem/lib/zeitwerk_sandbox_gem/bar/hoge.rb", [ZeitwerkSandboxGem, :Hoge]]
+[collapse_dirs]
+  - /Users/koshilife/zeitwerk_sandbox_gem/lib/zeitwerk_sandbox_gem/bar
+  - /Users/koshilife/zeitwerk_sandbox_gem/lib/zeitwerk_sandbox_gem/foo1/bar
+  - /Users/koshilife/zeitwerk_sandbox_gem/lib/zeitwerk_sandbox_gem/foo2/bar
+
+
+>> ZeitwerkSandboxGem::Hoge.hello
+Zeitwerk@zeitwerk_sandbox_gem: constant ZeitwerkSandboxGem::Hoge loaded from file /Users/koshilife/zeitwerk_sandbox_gem/lib/zeitwerk_sandbox_gem/bar/hoge.rb
+ZeitwerkSandboxGem::Hoge
+
+
+>> ZeitwerkSandboxGem::Foo1::Hoge1.hello
+Zeitwerk@zeitwerk_sandbox_gem: module ZeitwerkSandboxGem::Foo1 autovivified from directory /Users/koshilife/zeitwerk_sandbox_gem/lib/zeitwerk_sandbox_gem/foo1
+Zeitwerk@zeitwerk_sandbox_gem: autoload set for ZeitwerkSandboxGem::Foo1::Hoge1, to be loaded from /Users/koshilife/zeitwerk_sandbox_gem/lib/zeitwerk_sandbox_gem/foo1/bar/hoge1.rb
+Zeitwerk@zeitwerk_sandbox_gem: constant ZeitwerkSandboxGem::Foo1::Hoge1 loaded from file /Users/koshilife/zeitwerk_sandbox_gem/lib/zeitwerk_sandbox_gem/foo1/bar/hoge1.rb
+ZeitwerkSandboxGem::Foo1::Hoge1
+
+
+>> ZeitwerkSandboxGem::Foo2::Hoge2.hello
+Zeitwerk@zeitwerk_sandbox_gem: module ZeitwerkSandboxGem::Foo2 autovivified from directory /Users/koshilife/zeitwerk_sandbox_gem/lib/zeitwerk_sandbox_gem/foo2
+Zeitwerk@zeitwerk_sandbox_gem: autoload set for ZeitwerkSandboxGem::Foo2::Hoge2, to be loaded from /Users/koshilife/zeitwerk_sandbox_gem/lib/zeitwerk_sandbox_gem/foo2/bar/hoge2.rb
+Zeitwerk@zeitwerk_sandbox_gem: constant ZeitwerkSandboxGem::Foo2::Hoge2 loaded from file /Users/koshilife/zeitwerk_sandbox_gem/lib/zeitwerk_sandbox_gem/foo2/bar/hoge2.rb
+ZeitwerkSandboxGem::Foo2::Hoge2
+```
