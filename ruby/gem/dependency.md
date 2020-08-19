@@ -27,8 +27,8 @@ https://github.com/koshilife/omniauth-zoom/issues/11
     - 多少のダウンタイムが、許されるなら`~>`
     - 可用性低くてもよければ、ライブラリ管理から解放される下限のみでもよいかと
 - development dependency
-  - テスト環境なのでCIが動いているのであれば、最新版取り込む形にするのがよいかと、下限かバージョンなし
-
+  - CIが動いているのであれば、バグ混入時に気付くことができるので、最新版取り込む形にするのが管理コストが下げられて楽かと。
+  
 
 参考
 - [Gemfileでバージョン指定できる種類](https://blog.yuhiisk.com/archive/2017/04/24/specify-the-version-of-gemfile.html)
