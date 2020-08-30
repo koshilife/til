@@ -8,6 +8,11 @@
   - https://github.com/koshilife/omniauth-cybozu
 - 2020/06 作成Gem
   - https://github.com/koshilife/timetree-api-ruby-client/
+- 2020/07 作成Gem
+  - https://github.com/koshilife/omniauth-zoom
+- 2020/08 作成Gem
+  - https://github.com/koshilife/omniauth-calendly
+  - https://github.com/koshilife/calendly-api-ruby-client
 
 Gemの作り方の備忘
 
