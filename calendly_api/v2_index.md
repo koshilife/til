@@ -9,3 +9,6 @@
 - Organization Membership 組織に紐づくメンバー
 - ScheduledEvent 予約されたイベント
 
+Wrapperライブラリを作成した。
+
+https://github.com/koshilife/calendly-api-ruby-client
