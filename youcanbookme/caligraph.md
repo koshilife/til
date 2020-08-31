@@ -50,9 +50,49 @@ password は以下の４種をサポートしている。
 
 ## Resource
 
+### RemoteAccounts
 
-
+連携するカレンダーサービス例えば Google Calendar, Microsoft Calendar等のアカウントを指す。
+Caligraphを用いてRemoteAccountを作成することもできるが、だいたいOAuthプロトコルを使っているのでダッシュボードから
+外部アカウントの連携をするのが簡単だよ。
 
 ```
-例を書く
+https://caligraph.youcanbook.me/v1/[ACCOUNT_ID]/remoteaccounts?fields=id,type,username
 ```
+
+### Calendars
+
+RemoteAccountが提供するカレンダー情報に対するCRUD操作を可能にします。
+DELETEしたら元に戻す事ができないので注意してね。
+
+カレンダー一覧
+
+```
+https://caligraph.youcanbook.me/v1/[ACCOUNT_ID]/remoteaccounts/[REMOTE_ACCOUNT_ID]/calendars?fields=id,title,timeZone
+```
+
+### Events
+
+カレンダーに紐づくイベント情報
+
+
+### Queries
+
+(記述なし)
+
+### Profiles
+
+誰かが予約できる予約ページの情報を指す。
+e.g. https://example.youcanbook.me.
+
+有料ユーザは複数の予約ページを持つことが可能。
+営業時間、キャンセルルール、ロゴ、予約フォームなど多岐の情報を登録、編集可能。
+サブオブジェクトのteams, services,questionや、予約イベントで発生するテンプレートイベントを制御するaction情報にもアクセス可能。
+
+### Bookings
+
+予約ページで予約された情報、質問への回答内容を取得できる。
+予約情報の全量を取得するために、ページネーションも提供している。
+検索パラメーターでフィルター機能も提供している。
+
+
