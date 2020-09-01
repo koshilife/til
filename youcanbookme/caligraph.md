@@ -1,4 +1,4 @@
-# YouCanBook.me API Caligraph について　
+# YouCanBook.me API / Caligraph について　
 
 Doc https://api.youcanbook.me/docs/index.html
 
@@ -6,7 +6,7 @@ Doc https://api.youcanbook.me/docs/index.html
 Google/Microsoftなどのリモート接続先のカレンダーリソースも統合して変更ができるようになるよ。
 
 CalDAV, iCalendarにおいて、包括的な適用ができないことがあったり、REST JSON形式でのIFはサポートされていない問題があった。
-YouCanBook.meのAPI "Caligraph" は、主要なカレンダーサービスに対して、APIプロビジョニングの最新のベストプラクティスを使うことで
+YouCanBook.meのAPI / Caligraph は、主要なカレンダーサービスに対して、APIプロビジョニングの最新のベストプラクティスを使うことで
 これらの解決するものである。
 
 - 解決する問題:
@@ -36,13 +36,17 @@ http authentication を用いた認証を使っている。
 username は account email
 password は以下の４種をサポートしている。
 
-- Accountに紐づくAPI KEY (`https://caligraph.youcanbook.me/v1/jane@example.com?fields=apiKey` で取得可能)
-- YouCanBook.me のパスワード (dashboardから設定可能)
-- ワンタイムトークン リクエストすれば、アカウントのメールアドレスに送信する
-- セッショントークン （リセットができて有効期限がある）
+1. Accountに紐づくAPI KEY
+  - `https://caligraph.youcanbook.me/v1/jane@example.com?fields=apiKey` で取得可
+2. YouCanBook.me のパスワード
+  - dashboardから設定可
+3. ワンタイムトークン リクエストすれば、アカウントのメールアドレスに送信する
+  - `https://caligraph.youcanbook.me/v1/jane@example.com?fields=oneTimeToken%2ConeTimeTokenExpiresAt` で取得可
+4. セッショントークン
+  - リセットができて有効期限がある
+  - `https://caligraph.youcanbook.me/v1/jane@example.com?fields=sessionToken%2CsessionTokenExpiresAt` で取得可
 
 推奨は有効期限があり、長めの文字列のセッショントークンを用いてほしいとのこと。
-
 
 
 ## Fields
