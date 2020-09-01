@@ -43,9 +43,75 @@ password は以下の４種をサポートしている。
 
 推奨は有効期限があり、長めの文字列のセッショントークンを用いてほしいとのこと。
 
+
+
 ## Fields
 
-リソースにアクセスしたときに、fieldsプロパティでデフォルト値以外のデータを取得することができる。カンマ区切りで指定。
+リソースにアクセスしたときに、fieldsプロパティでデフォルト値以外のデータを取得することができる。カンマ区切りで指定。 関連リレーションの場合は.(ドット)で連結すれば返却される。ただし、どのフィールドにアクセス可能かについては公開されていない。
+
+
+```.json
+// 'profiles', 'pro\iles.actions', 'profiles.actions.subject' の3段階の深さでfieldsを指定
+// GET https://api.youcanbook.me/v1/foobar@example.com?fields=profiles%2Cprofiles.actions%2Cprofiles.actions.subject
+{
+  "profiles": [
+    {
+      "actions": [
+        { "subject": "Meeting canceled by {FNAME}" },
+        {
+          "subject": "Your meeting with {BOOKING-PAGE-TITLE} has been rescheduled"
+        },
+        { "subject": "Your meeting with {BOOKING-PAGE-TITLE}" },
+        {
+          "subject": "Your meeting with {BOOKING-PAGE-TITLE} has been canceled"
+        },
+        { "subject": "New meeting scheduled with {FNAME}" },
+        { "subject": "Meeting rescheduled by {FNAME}" },
+        {
+          "subject": "Your meeting with {BOOKING-PAGE-TITLE} is starting soon"
+        },
+        { "subject": "New meeting scheduled with {FNAME}" }
+      ]
+    },
+    {
+      "actions": [
+        { "subject": "New meeting scheduled with {FNAME}" },
+        { "subject": "Your meeting with {BOOKING-PAGE-TITLE}" },
+        {
+          "subject": "Your meeting with {BOOKING-PAGE-TITLE} has been canceled"
+        },
+        { "subject": "Meeting canceled by {FNAME}" },
+        {
+          "subject": "Your meeting with {BOOKING-PAGE-TITLE} has been rescheduled"
+        },
+        {
+          "subject": "Your meeting with {BOOKING-PAGE-TITLE} is starting soon"
+        },
+        { "subject": "Meeting rescheduled by {FNAME}" }
+      ]
+    },
+    {
+      "actions": [
+        { "subject": "Your meeting with {BOOKING-PAGE-TITLE}" },
+        {
+          "subject": "Your meeting with {BOOKING-PAGE-TITLE} has been canceled"
+        },
+        {
+          "subject": "Your meeting with {BOOKING-PAGE-TITLE} has been rescheduled"
+        },
+        { "subject": "Meeting canceled by {FNAME}" },
+        {
+          "subject": "Your meeting with {BOOKING-PAGE-TITLE} is starting soon"
+        },
+        { "subject": "New meeting scheduled with {FNAME}" },
+        { "subject": "Meeting rescheduled by {FNAME}" },
+        { "subject": "New meeting scheduled with {FNAME}" }
+      ]
+    }
+  ]
+}
+
+```
 
 
 ## Resource
