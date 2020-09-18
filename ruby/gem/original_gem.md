@@ -13,6 +13,9 @@
 - 2020/08 作成Gem
   - https://github.com/koshilife/omniauth-calendly
   - https://github.com/koshilife/calendly-api-ruby-client
+- 2020/09 作成Gem
+  - https://github.com/koshilife/youcanbookme-api-ruby-client
+  - https://github.com/koshilife/kintone (fork)
 
 Gemの作り方の備忘
 
