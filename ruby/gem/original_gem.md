@@ -48,6 +48,9 @@ bundle exec rake test
 
 # リリース
 bundle exec rake release
+
+# 削除 (kintone 関連gemをリネームした時に実行)
+$ gem yank koshilife-kintone -v 0.2.0
 ```
 
 * .gemspec
