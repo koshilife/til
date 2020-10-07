@@ -25,6 +25,25 @@ $ rails g mongoid:config
 
 # vue setup
 ./bin/rails  webpacker:install
-./bin/rails webpacker:install:typescript
+./bin/rails  webpacker:install:typescript
 ./bin/rails  webpacker:install:vue
+```
+
+config/webpack/loaders/typescript.js
+内で vue ファイルを読み込み可能にし、vueファイルのスクリプトタグにtsを指定 `<script lang="ts">`
+
+```typescript.js
+const PnpWebpackPlugin = require("pnp-webpack-plugin")
+
+module.exports = {
+  test: /\.tsx?(\.erb)?$/,
+  use: [
+    {
+      loader: "ts-loader",
+      options: PnpWebpackPlugin.tsLoaderOptions({
+        appendTsSuffixTo: [/\.vue$/],
+      }),
+    },
+  ],
+}
 ```
