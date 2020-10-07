@@ -25,5 +25,6 @@ $ rails g mongoid:config
 
 # vue setup
 ./bin/rails  webpacker:install
+./bin/rails webpacker:install:typescript
 ./bin/rails  webpacker:install:vue
 ```
