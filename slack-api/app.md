@@ -28,16 +28,16 @@ https://api.slack.com/interactivity/handling
 3秒以内に200 OK を返却しないと、エラーメッセージを表示する
 ### Message responses
 
-optional responses that use a special URL from the payload to publish messages.
-
 payload発生から30分以内に5回まで利用できる
+
 ```
 curl -X POST -H 'Content-type: application/json' --data \
 '{"text": "Thanks for your request, we will process it and get back to you."}' \
 <RESPONSE_URL>
 ```
 
-Publishing ephemeral 期限なし
+Publishing ephemeral
+メッセージを他の人でも見れるよう永続化する場合は、`"response_type": "ephemeral"` を指定
 ```
 curl -X POST -H 'Content-type: application/json' --data \
 '{"text": "Thanks for your request, we will process it and get back to you.", "response_type": "ephemeral"}' \
