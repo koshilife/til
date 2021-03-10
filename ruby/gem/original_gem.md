@@ -49,8 +49,12 @@ bundle exec rspec
 # test実行 (minitest)
 bundle exec rake test
 
-# リリース
+# リリース (pattern1)
 bundle exec rake release
+
+# リリース (pattern2)
+gem build *.gemspec 
+gem push *.gem 
 
 # 削除 (kintone 関連gemをリネームした時に実行)
 $ gem yank koshilife-kintone -v 0.2.0
