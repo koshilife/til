@@ -13,7 +13,11 @@ rails のみコメントイン
 $ bundle update
 $ bundle install
 
+# Vue利用時
 $ bundle exec rails new . --skip-turbolinks --webpack=vue --skip-active-record
+
+# APIモード
+$ bundle exec rails new . --skip-active-record --api
 
 # 警告で推奨されたので。
 $ bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java
