@@ -89,6 +89,10 @@ default: &default
 docker-compose run web rails new . --force --no-deps --database=mysql --api
 docker-compose run web bundle install
 docker-compose run web rails db:create
+
+// if some error
+docker-compose build --no-cache
+
 ```
 
 - Refs.
