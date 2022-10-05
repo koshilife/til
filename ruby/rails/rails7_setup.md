@@ -127,4 +127,4 @@ Finished in 0.00027 seconds (files took 0.03759 seconds to load)
   - https://qiita.com/croquette0212/items/7b99d9339fd773ddf20b
   - https://qiita.com/youta0/items/4bb2b5e50d3f9908f3f8
   - https://qiita.com/tmasuyama/items/5252925a1533adaab723
-
+  - https://gihyo.jp/dev/serial/01/mysql-road-construction-news/0167
