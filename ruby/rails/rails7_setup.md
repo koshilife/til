@@ -112,6 +112,7 @@ end
 
 ```
 $ docker-compose build --no-cache
+$ docker-compose run web rails g rspec:install
 $ docker-compose run web rspec         
 Creating rails7-active-job_web_run ... done
 No examples found.
