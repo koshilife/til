@@ -73,7 +73,7 @@ services:
       - db
 ```
 
-database.yml
+database.yml の 一部差し替え
 ```config/database.yml
 default: &default
   adapter: mysql2
@@ -85,15 +85,46 @@ default: &default
   socket: /tmp/mysql.sock```
 ```
 
-```
-docker-compose run web rails new . --force --no-deps --database=mysql --api
-docker-compose run web bundle install
-docker-compose run web rails db:create
+```sh
+$ docker-compose run web rails new . --force --no-deps --database=mysql --api
+$ docker-compose run web bundle install
+
+$ docker-compose up
+$ docker-compose run web rails db:create
 
 // if some error
-docker-compose build --no-cache
+$ docker-compose build --no-cache
 
 ```
 
+### Rspec
+
+```
+
+rpsecを入れるためにGemfile
+```Gemfile
+group :development, :test do
+  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "rspec-rails" 
+  gem "factory_bot_rails" 
+end
+```
+
+```
+$ docker-compose build --no-cache
+$ docker-compose run web rspec         
+Creating rails7-active-job_web_run ... done
+No examples found.
+
+
+Finished in 0.00027 seconds (files took 0.03759 seconds to load)
+0 examples, 0 failures
+```
+
+
 - Refs.
-- https://qiita.com/croquette0212/items/7b99d9339fd773ddf20b
+  - https://qiita.com/croquette0212/items/7b99d9339fd773ddf20b
+  - https://qiita.com/youta0/items/4bb2b5e50d3f9908f3f8
+  - https://qiita.com/tmasuyama/items/5252925a1533adaab723
+
