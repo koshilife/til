@@ -99,9 +99,8 @@ $ docker-compose build --no-cache
 
 ### Rspec
 
-```
 
-rpsecを入れるためにGemfile
+rpsecを入れるためにGemfile修正
 ```Gemfile
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
