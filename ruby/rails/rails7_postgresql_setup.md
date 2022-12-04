@@ -1,5 +1,6 @@
 # Rails7 x PostgreSQL
 
+## rails new
 
 ```
 $ rbenv local 3.1.3
@@ -20,3 +21,23 @@ $ bundle exec rails new . \
   --skip-system-test
 ```
 
+## setup RSpec
+
+add `rspec-rails` into Gemfile
+
+```Gemfile
+group :development, :test do
+  # (..)
+  gem 'rspec-rails'
+end
+```
+
+setup rspec
+```
+$ bin/rails generate rspec:install
+```
+
+generate rspec binstub
+```
+bundle binstubs rspec-core
+```
