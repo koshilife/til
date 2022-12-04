@@ -9,12 +9,16 @@ $ vim Gemfile
 // commentin rails
 
 $ bundle exec rails new . \
+  --minimal \
   --api \
   --database=postgresql \
   --skip-action-mailer \
+  --skip-action-mailbox \
   --skip-action-text \
+  --skip-active-storage \
   --skip-action-cable \
   --skip-sprockets \
+  --skip-spring \
   --skip-turbolinks \
   --skip-webpack-install \
   --skip-test \
